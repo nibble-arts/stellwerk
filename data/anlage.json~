@@ -1,0 +1,78 @@
+{
+	"comment": {
+		"text1": "<h1>Control structure definition</h1><h2>Elements</h2><h3>area</h3>",
+		"text2": "<p>An defined area, which can be a complete railway or station.",
+		"text3": "<h3>block</h3>",
+		"text4": "<p>A block is defined as an area, where only one train at a time must be on it. The block has three definitions: id, left and right.</p>",
+		"text5": "<ul>",
+		"text6": "<li>id: The id must be unique and is the block identification number</li>",
+		"text7": "<li>left: Defines the left side of the block: 'next'=the id of the next block, 'signal'=the signal number or an array of signal numbers.</li>",
+		"text8": "<li>right: Defines the right side in the way it is done with the left side</li>",
+		"text9": "</ul>",
+		"text10": "<h3>switch</h3>",
+		"text11": "<p>The switch is a tiny block with the difference of having a status on which branch the connection is set to.</p>",
+		"text12": "<ul>",
+		"text13": "<li>id: The id must be unique and is the switch identification number</li>",
+		"text14": "<li>left: Defines the left side of the switch. If it is the side of one track, it contains the connected block/switch id. If it is the switchable side, it contains an array with the connected block/switch ids. The index 0 contains the standard direction</li>",
+		"text15": "<li>right: Defines the right side in the way it is done with the left side</li>",
+		"text16": "</ul>"
+	},
+
+	"area": {
+		"name": "Silberwaldbahn",
+		"id": "SWB",
+
+		"area": {
+			"name": "Bahnhof Gartenhütte",
+			"id": "BGH",
+
+			"block": {
+				"id": "e1",
+				"left": { "next": "" },
+				"right": { "next": "w1", "signal": "A" }
+			},
+
+			"switch": {
+				"id": "w1",
+				"left": "e1",
+				"right": ["g1","g21"]
+			},
+
+			"block": {
+				"id": "g1",
+				"left": { "next": "w1", "signal": ["R1","V1L"] },
+				"right": { "next": "w3" }
+			},
+
+			"block": {
+				"id": "g21",
+				"left": { "next": "w1", "signal": ["R2","V2L"] },
+				"right": { "next": "w2" }
+			},
+
+			"switch": {
+				"id": "w2",
+				"left": ["g21",""],
+				"right": "g22"
+			},
+
+			"block": {
+				"id": "g22",
+				"left": { "next": "w2", "signal": "V2" },
+				"right": { "next": "w3", "signal": ["H2","V2R"] }
+			},
+
+			"switch": {
+				"id": "w3",
+				"left": ["g1","g22"],
+				"right": "e2"
+			},
+
+			"block": {
+				"id": "e2",
+				"left": { "next": "w2", "signal": "Z" },
+				"right": { "next": "" }
+			}
+		}
+	}
+}

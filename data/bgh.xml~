@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<desk>
+	<a>
+		<a1><block id="e1">010-010</block></a1>
+		<a2><signal id="V1">0-vs</signal></a2>
+		<a3><signal id="A">0-hs</signal></a3>
+		<a4><switch id="w1">010-011</switch><a4>
+		<a5><block id="s21">010-010</block></a5>
+		<a6><signal id="R2">hs-0</signal></a6>
+		<a7><signal id="VL2">vs-0</signal></a7>
+		<a8><block id="s21">010-010</block></a8>
+	</a>
+	<b>
+		<b1></b1>
+		<b2></b2>
+		<b3></b3>
+		<b4></b4>
+		<b5></b5>
+		<b6></b6>
+		<b7></b7>
+		<b8></b8>
+	</b>
+</desk>
+
