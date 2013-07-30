@@ -1,18 +1,50 @@
 // set buttons
-var imageSrc = "images/";
-var active;
-var activeColor = "#989DE4";
-var counter;
-var timeout = 0; // ms for auto timeout for selections (0 = no timeout)
+var url = "http://localhost/stellwerk/api.php";
+var root = "desk";
+var blocksize = 64;
 
 
 // init events
 function init() {
-	$("#a1").bind("click", { id: "a1",color: "green" }, setActive);
-	$("#a2").bind("click",{ id: "a2",color: "red" }, setActive);
+// load desk from api
+	$.ajax(
+	{
+		url: url,
+		type: "GET",
+		dataType: "xml",
+		async: true,
+		cache: false,
+		data: "cmd=getdesk&area=bgh",
+		success: function (data) {
+			createDesk(data);
+		},
+		error: function (xhr, msg) {
+			alert("error: " + xhr.responseText + " " + msg);
+		}
+	});
+
 
 	$("#do").bind("click", setDemo);
-	
+}
+
+
+// create the desk
+function createDesk(data) {
+// create rows
+	$.each ($(data).find("desk").children(), function(iy,vy) {
+
+// create blocks
+		$.each ($(data).find(vy).children(), function(ix,vx) {
+console.log(vx);
+			$("#"+root).append("<div id=''class='block' style='left: "+parseInt(ix*blocksize)+";top: "+parseInt(iy*blocksize)+";'>");
+
+// combine images
+			$.each ($(vx).find("field"), function(fx,fv) {
+// img name				console.log($(fv).text());
+			});
+		});
+	}
+	);
 }
 
 

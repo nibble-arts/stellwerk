@@ -2,14 +2,14 @@
 
 <desk>
 	<a>
-		<a1><block id="e1">010-010</block></a1>
-		<a2><signal id="V1">0-vs</signal></a2>
-		<a3><signal id="A">0-hs</signal></a3>
-		<a4><switch id="w1">010-011</switch><a4>
-		<a5><block id="s21">010-010</block></a5>
-		<a6><signal id="R2">hs-0</signal></a6>
-		<a7><signal id="VL2">vs-0</signal></a7>
-		<a8><block id="s21">010-010</block></a8>
+		<a1><B_010-010>e1</B_010-010></a1>
+		<a2><S_0-vs>V1</S_0-vs></a2>
+		<a3><S_0-hs>A</S_0-hs></a3>
+		<a4><W_rr>W1</W_rr></a4>
+		<a5><B_010-010>s21</B_010-010></a5>
+		<a6><S_hs-0>R2</S_hs-0></a6>
+		<a7><S_vs-0>V2L</S_vs-0></a7>
+		<a8><B_010-010>s22</B_010-010></a8>
 	</a>
 	<b>
 		<b1></b1>
