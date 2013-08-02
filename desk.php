@@ -50,11 +50,12 @@ class Desk {
 // parse blocks
 		foreach($this->desk as $entry) {
 			foreach($entry as $col) {
+				$name = (string)$col->children()->getName();
 
-				simplexml_insert($col[0],$this->blocks->get_block((string)$col->children()->getName()));
+				$col[0] = "";
+				simplexml_insert($col[0],$this->blocks->get_block($name));
 //				$this->blocks->get_block($col->children()->getName());
 			}
-			
 		}
 
 		return $this->desk->asXML();

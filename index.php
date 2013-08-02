@@ -34,7 +34,7 @@
 			</span>-->
 		</div>
 		
-		<div style="clear:both"></div>
+<!--		<div style="clear:both"></div>
 		
 		<div id="status">
 			Block <input id="id-input" type="text" name="id" size="5">
@@ -42,6 +42,6 @@
 			X <input id="X-input" type="text" name="id" size="5">
 			Y <input id="Y-input" type="text" name="id" size="5">
 			<input type="submit" id="do" value="set">
-		</div>
+		</div>-->
 	</body>
 </html>
