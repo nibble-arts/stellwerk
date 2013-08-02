@@ -63,7 +63,7 @@ function createDesk(data) {
 				var px = $(fv).attr("px");
 				var py = $(fv).attr("py");
 
-				$("#"+id).append("<img src='"+imgPath+"button-"+color+"' class='button px"+px+" py"+py+"'>")
+				$("#"+id).append("<img src='"+imgPath+"button-"+color+".png' class='button px"+px+" py"+py+"'>")
 					.bind("click", { "id": id, "color": color }, setActive );
 			});
 
