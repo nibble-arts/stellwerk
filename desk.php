@@ -48,18 +48,45 @@ class Desk {
 	function get_desk($area) {
 
 // parse blocks
-		foreach($this->desk as $entry) {
-			foreach($entry as $col) {
-				$name = (string)$col->children()->getName();
+		$areaXml = $this->desk->xPath("area[@name='{$area}']");
 
-				$col[0] = "";
-				simplexml_insert($col[0],$this->blocks->get_block($name));
-//				$this->blocks->get_block($col->children()->getName());
+		if (count($areaXml)) {
+			foreach($areaXml[0] as $entry) {
+				foreach($entry as $col) {
+					$name = (string)$col->children()->getName();
+
+					$col[0] = "";
+					simplexml_insert($col[0],$this->blocks->get_block($name));
+	//				$this->blocks->get_block($col->children()->getName());
+				}
 			}
-		}
 
-		return $this->desk->asXML();
+			return $areaXml[0];
+		}
 	}
 
+
+//==============================================================================
+// return a list of areas
+	function get_areas() {
+		$areas = $this->desk->xPath("//area");
+		$areaArray = array();
+
+// loop all areas defined
+		foreach ($areas as $entry) {
+			$name = (string)$entry->attributes()->name;
+
+	//TODO get area status from database
+			$status = "auto";
+						
+			$area = "<area name='".$name."' status='".$status."'/>";
+			array_push($areaArray,$area);
+		}
+// create areas xml
+		$areaObj = new simpleXmlElement("<areas>".implode($areaArray)."</areas>");
+
+		return $areaObj;
+	}
+	
 }
 ?>

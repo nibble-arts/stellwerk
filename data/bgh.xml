@@ -1,41 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <desk>
-	<a>
-		<a1></a1>
-		<a2></a2>
-		<a3><G_WGT/></a3>
-		<a4><G_SGT/></a4>
-		<a5><G/></a5>
-		<a6><G_HAT/></a6>
-		<a7></a7>
-		<a8></a8>
-		<a9></a9>
-		<a10></a10>
-	</a>
-	<b>
-		<b1><B_010-010 id="e1"/></b1>
-		<b2><B_010-B-010 id="e1"/></b2>
-		<b3><S_0-vs id="V1"/></b3>
-		<b4><S_0-hs id="A"/></b4>
-		<b5><W_rr id="W1"/></b5>
-		<b6><B_010-010 id="s21"/></b6>
-		<b7><S_hs-0 id="R2"/></b7>
-		<b8><S_vs-0 id="V2L"/></b8>
-		<b9><B_010-010 id="s22"/></b9>
-		<b10><B_010-B-010 id="s22"/></b10>
-	</b>
-	<c>
-		<c1></c1>
-		<c2></c2>
-		<c3></c3>
-		<c4></c4>
-		<c5></c5>
-		<c6><W_lr id="W2"/></c6>
-		<c7><S_hs-0 id="R1"/></c7>
-		<c8><S_vs-0 id="V1L"/></c8>
-		<c9></c9>
-		<c10></c10>
-	</c>
+	<area name="BGH" full="Bahnhof Gartenhütte">
+		<a>
+			<a0/>
+			<a1></a1>
+			<a2></a2>
+			<a3><G_WGT/></a3>
+			<a4><G_SGT/></a4>
+			<a5><G/></a5>
+			<a6><G_HAT/></a6>
+			<a7></a7>
+			<a8></a8>
+			<a9></a9>
+			<a10></a10>
+			<a11/>
+		</a>
+		<b>
+			<b0><B_left id="s1" text="Block 1" py="1"/></b0>
+			<b1><B_010-010 id="e1"/></b1>
+			<b2><B_010-B-010 id="e1"/></b2>
+			<b3><S_0-vs id="V1"/></b3>
+			<b4><S_0-hs id="A"/></b4>
+			<b5><W_rr id="W1"/></b5>
+			<b6><B_010-010 id="s21"/></b6>
+			<b7><S_hs-0 id="R2"/></b7>
+			<b8><S_vs-0 id="V2L"/></b8>
+			<b9><B_010-010 id="s22"/></b9>
+			<b10><B_010-B-010 id="s22"/></b10>
+			<b11><B_right id="s1" text="Block 1"/></b11>
+		</b>
+		<c>
+			<c0/>
+			<c1></c1>
+			<c2></c2>
+			<c3></c3>
+			<c4></c4>
+			<c5></c5>
+			<c6><W_lr id="W2"/></c6>
+			<c7><S_hs-0 id="R1"/></c7>
+			<c8><S_vs-0 id="V1L"/></c8>
+			<c9></c9>
+			<c10></c10>
+			<c11/>
+		</c>
+	</area>
+
+	<area name="BL1" full="Block 1">
+		<b>
+			<b0><B_left id="s1"><text py="1">Bhf. GH</text></B_left></b0>
+			<b1><B_010-010 id="s1"/></b1>
+			<b3><B_010-010 id="s1"/></b3>
+			<b2><S_0-hs id="R2"/></b2>
+			<b4><B_010-B-010 id="s1"/></b4>
+			<b6><S_hs-0 id="Z2"/></b6>
+			<b5><B_010-010 id="s1"/></b5>
+			<b7><B_010-010 id="s1"/></b7>
+			<b8><B_right id="s1" text="Block 2" py="1"/></b8>
+		</b>
+	</area>
 </desk>
 

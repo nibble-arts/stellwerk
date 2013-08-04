@@ -33,13 +33,31 @@ Difinitions:
 	
 	<B_010-B-010>
 		<field>010-010.png</field>
-		<button color="black" px="2" py="2"></button>
+		<button type="gt" color="black" px="2" py="2"></button>
 	</B_010-B-010>
 	
+	<B_left>
+		<field>000-040-010.png</field>
+		<light pos="040">
+			<status id="0">black</status>
+			<status id="1">yellow</status>
+			<status id="2">red</status>
+		</light>
+	</B_left>
+	
+	<B_right>
+		<field>010-010-000.png</field>
+		<light pos="010">
+			<status id="0">black</status>
+			<status id="1">yellow</status>
+			<status id="2">red</status>
+		</light>
+	</B_right>
+
 	<S_vs-0>
 		<field>010-010-010.png</field>
 		<field>vs-0.png</field>
-		<button color="blue" px="2" py="2"></button>
+		<button type="st" color="blue" px="2" py="2"></button>
 		<light pos="100">
 			<status id="0">black</status>
 			<status id="1">yellow</status>
@@ -59,7 +77,7 @@ Difinitions:
 	<S_0-vs>
 		<field>010-040-010.png</field>
 		<field>0-vs.png</field>
-		<button color="blue" px="2" py="2"></button>
+		<button type="st" color="blue" px="2" py="2"></button>
 		<light  pos="100">
 			<status id="0">black</status>
 			<status id="1">yellow</status>
@@ -77,7 +95,7 @@ Difinitions:
 	<S_hs-0>
 		<field>010-010-010.png</field>
 		<field>hs-0.png</field>
-		<button color="black" px="2" py="2"></button>
+		<button type="st" color="black" px="2" py="2"></button>
 		<light status="0" pos="100">black</light>
 		<light status="1" pos="100">yellow</light>
 		<light status="2" pos="100">red</light>
@@ -91,7 +109,7 @@ Difinitions:
 	<S_0-hs>
 		<field>010-040-010.png</field>
 		<field>0-hs.png</field>
-		<button color="black" px="2" py="2"></button>
+		<button type="st" color="black" px="2" py="2"></button>
 		<light status="0" pos="100">black</light>
 		<light status="1" pos="100">yellow</light>
 		<light status="2" pos="100">red</light>
@@ -106,13 +124,13 @@ Difinitions:
 	</S_hs-hs>
 
 	<W_rr>
-		<button color="black" px="2" py="2"/>
+		<button type="wt" color="black" px="2" py="2"/>
 		<field>010-040-010.png</field>
 		<field>000-004-001.png</field>
 	</W_rr>
 
 	<W_lr>
-		<button color="black" px="2" py="2"/>
+		<button type="wt" color="black" px="2" py="2"/>
 		<field>010-010-010.png</field>
 		<field>100-100-000.png</field>
 	</W_lr>
@@ -122,19 +140,19 @@ Difinitions:
 	</G>
 
 	<G_WGT>
-		<button color="blue" px="2" py="2"/>
+		<button type="wgt" color="blue" px="2" py="2"/>
 		<background>group-color</background>
 		<text py="3">WGT</text>
 	</G_WGT>
 
 	<G_SGT>
-		<button color="black" px="2" py="2"/>
+		<button type="sgt" color="black" px="2" py="2"/>
 		<background>group-color</background>
 		<text py="3">SGT</text>
 	</G_SGT>
 
 	<G_HAT>
-		<button color="black" px="2" py="2"/>
+		<button type="hat" color="black" px="2" py="2"/>
 		<background>group-color</background>
 		<text py="3">HAT</text>
 	</G_HAT>

@@ -47,12 +47,24 @@ if (isset($_GET["cmd"])) $cmd = $_GET["cmd"];
 if (isset($_GET["area"])) $area = $_GET["area"];
 
 if (isset($cmd)) {
+	$output = "";
+	
 	switch($cmd) {
+
+// get list of defined areas
+		case "getareas":
+			$output = $desk->get_areas();
+			break;
+
+// get desk definiton
 		case "getdesk":
-			if ($area)
-				echo $desk->get_desk($area);
+			if (isset($area))
+				$output = $desk->get_desk($area);
 			break;
 	}
+
+	if ($output)
+		echo $output->asXML();
 }
 
 
