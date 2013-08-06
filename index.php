@@ -6,14 +6,10 @@
 		
 		<script src="js/jquery-1.9.1.js" type="text/javascript"></script>
 		<script src="js/display.js" type="text/javascript"></script>
-		<noscript><div id="noscript">Bitte Javascript aufdrehen</div></noscript>
+		<noscript><div id="noscript">Bitte Javascript aktivieren</div></noscript>
 	</head>
 
 	<body onload="init()">
-
-<?PHP
-		include("api.php");
-?>
 
 		<div id="desk">
 <!--			<span id="a1" class="block" style="position:absolute; width: 64px; left: 0px">
@@ -38,9 +34,8 @@
 		
 		<div id="status">
 			Block <input id="id-input" type="text" name="id" size="5">
-			Farbe <input id="color-input" type="text" name="id" size="5">
-			X <input id="X-input" type="text" name="id" size="5">
-			Y <input id="Y-input" type="text" name="id" size="5">
+			Status <input id="status-input" type="text" name="id" size="5">
+			Signal <input id="signal-input" type="text" name="id" size="5">
 			<input type="submit" id="do" value="set">
 		</div>-->
 	</body>

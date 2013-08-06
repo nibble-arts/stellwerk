@@ -30,6 +30,10 @@ include_once("xml.php");
 include_once("control.php");
 include_once("desk.php");
 
+
+//=========================================================
+// ajax option definiton
+
 $options = array(
 	"path" => "data/",
 	"control" => "anlage.xml",
@@ -37,37 +41,95 @@ $options = array(
 	"blocks" => "blocks.xml"
 );
 
+
+//=========================================================
+// variable definition
+
 $control = new Control($options);
 $desk = new Desk($options);
-
-
-// parse api call */
+$output = new simpleXmlElement("<apiXml></apiXml>");
+$error = "no error";
 
 if (isset($_GET["cmd"])) $cmd = $_GET["cmd"];
 if (isset($_GET["area"])) $area = $_GET["area"];
 
+
+//=========================================================
+// parse api call */
+
 if (isset($cmd)) {
-	$output = "";
 	
 	switch($cmd) {
 
 // get list of defined areas
 		case "getareas":
-			$output = $desk->get_areas();
+			simplexml_insert($output,$desk->get_areas(),"all");
 			break;
 
 // get desk definiton
 		case "getdesk":
 			if (isset($area))
-				$output = $desk->get_desk($area);
+				simplexml_insert($output,$desk->get_desk($area),"all");
+			else
+				$error = "Missing api area parameter in 'getdesk' command";
 			break;
+
+//=========================================================
+// get blocks able to be deactivated
+		case "getblock":
+//TODO for debug use
+	// signal:   0 ... free
+	//           1 ... occupied
+	//           3 ... requested
+	//           4 ... locked
+			$output = new simpleXmlElement("<apiXml><data><E1 status='0' signal='0'/><S22 status='0' signal='1'/><W3 status='0' signal='2'/></data></apiXml>");
+			break;
+			
+//=========================================================
+// get switches able to be switched
+		case "getswitch":
+//TODO for debug use
+	// signal:   0 ... in normal position
+	//           1 ... in switched position
+	//           3 ... moving
+	//           4 ... error
+	//           4 ... locked
+			$output = new simpleXmlElement("<apiXml><data><W1 status='0' signal='0'/><W2 status='0' signal='1'/><W3 status='0' signal='2'/></data></apiXml>");
+			break;
+			
+//=========================================================
+// get switches able to be switched
+		case "getsignal":
+//TODO for debug use
+	// signal:   0 ... stop
+	//           1 ... free
+	//           2 ... free slow
+	//           3 ... locked
+			$output = new simpleXmlElement("<apiXml><data><A status='0' signal='0'/><V1 status='0' signal='1'/><B1 status='0' signal='1'/><B2 status='0' signal='1'/></data></apiXml>");
+			break;
+			
+// unknow command
+		default:
+			$error = "Api command '{$cmd}' unknown";
 	}
-
-	if ($output)
-		echo $output->asXML();
 }
+else
+
+//=========================================================
+// no command found
+	$error = "Api command missing";
+
+// insert error message
+simplexml_insert($output,new simpleXmlElement("<error>{$error}</error>"));
+
+// send result
+echo $output->asXML();
 
 
+
+
+//=========================================================
+// debug output
 function print_pre($content) {
 	echo "<pre>";
 		print_r($content);

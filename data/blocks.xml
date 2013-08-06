@@ -22,6 +22,10 @@ Difinitions:
 -->
 
 <blocks>
+
+<!--=================================================
+  Block fields
+-->
 	<B_010-010>
 		<field>010-020-010.png</field>
 		<light pos="020">
@@ -53,6 +57,10 @@ Difinitions:
 			<status id="2">red</status>
 		</light>
 	</B_right>
+
+<!--=================================================
+  Signal fields
+-->
 
 	<S_vs-0>
 		<field>010-010-010.png</field>
@@ -121,7 +129,20 @@ Difinitions:
 	</S_0-hs>
 	
 	<S_hs-hs>
+		<field>010-010.png</field>
+		<field>0-hs.png</field>
+		<field>hs-0.png</field>
+		<button type="st" color="black" px="2" py="2"></button>
+
+		<light signal="0" pos="004">red</light>
+		<light signal="1" pos="004">black</light>
+		<light signal="0" pos="002">black</light>
+		<light signal="1" pos="002">green</light>
 	</S_hs-hs>
+
+<!--=================================================
+  Switch fields
+-->
 
 	<W_rr>
 		<button type="wt" color="black" px="2" py="2"/>
@@ -135,6 +156,10 @@ Difinitions:
 		<field>100-100-000.png</field>
 	</W_lr>
 	
+<!--=================================================
+  Group fields
+-->
+
 	<G>
 		<background>group-color</background>
 	</G>

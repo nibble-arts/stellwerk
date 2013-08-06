@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <desk>
-	<area name="BGH" full="Bahnhof Gartenhütte">
+	<area name="bgh" full="Bahnhof Gartenhütte">
 		<a>
 			<a0/>
 			<a1></a1>
@@ -17,18 +17,18 @@
 			<a11/>
 		</a>
 		<b>
-			<b0><B_left id="s1" text="Block 1" py="1"/></b0>
-			<b1><B_010-010 id="e1"/></b1>
-			<b2><B_010-B-010 id="e1"/></b2>
-			<b3><S_0-vs id="V1"/></b3>
-			<b4><S_0-hs id="A"/></b4>
-			<b5><W_rr id="W1"/></b5>
-			<b6><B_010-010 id="s21"/></b6>
-			<b7><S_hs-0 id="R2"/></b7>
-			<b8><S_vs-0 id="V2L"/></b8>
-			<b9><B_010-010 id="s22"/></b9>
-			<b10><B_010-B-010 id="s22"/></b10>
-			<b11><B_right id="s1" text="Block 1"/></b11>
+			<b0 status_id="s3"><B_left><text py="1" class="small">Block 3</text></B_left></b0>
+			<b1 status_id="e1"><B_010-010/></b1>
+			<b2 status_id="e1" block_id="E1"><B_010-B-010/></b2>
+			<b3 status_id="e1" signal_id="V1"><S_0-vs/></b3>
+			<b4 status_id="e1" signal_id="A"><S_0-hs/></b4>
+			<b5 status_id="w1" switch_id="W1"><W_rr/></b5>
+			<b6 status_id="s21"><B_010-010/></b6>
+			<b7 status_id="s21" signal_id="R2"><S_hs-0/></b7>
+			<b8 status_id="s21" signal_id="V2L"><S_vs-0/></b8>
+			<b9 status_id="s22"><B_010-010/></b9>
+			<b10 status_id="s22" block_id="S22"><B_010-B-010/></b10>
+			<b11 status_id="s1"><B_right><text py="1" class="small">Block 1</text></B_right></b11>
 		</b>
 		<c>
 			<c0/>
@@ -37,26 +37,26 @@
 			<c3></c3>
 			<c4></c4>
 			<c5></c5>
-			<c6><W_lr id="W2"/></c6>
-			<c7><S_hs-0 id="R1"/></c7>
-			<c8><S_vs-0 id="V1L"/></c8>
-			<c9></c9>
-			<c10></c10>
+			<c6 status_id="w2" switch_id="W2"><W_lr/></c6>
+			<c7 status_id="s1" signal_id="R1"><S_hs-0/></c7>
+			<c8 status_id="s1" signal_id="V1L"><S_vs-0/></c8>
+			<c9 status_id="s1"><B_010-010/></c9>
+			<c10 status_id="s1"><B_010-B-010/></c10>
 			<c11/>
 		</c>
 	</area>
 
-	<area name="BL1" full="Block 1">
+	<area name="bl1" full="Schleife Süd">
 		<b>
-			<b0><B_left id="s1"><text py="1">Bhf. GH</text></B_left></b0>
-			<b1><B_010-010 id="s1"/></b1>
-			<b3><B_010-010 id="s1"/></b3>
-			<b2><S_0-hs id="R2"/></b2>
-			<b4><B_010-B-010 id="s1"/></b4>
-			<b6><S_hs-0 id="Z2"/></b6>
-			<b5><B_010-010 id="s1"/></b5>
-			<b7><B_010-010 id="s1"/></b7>
-			<b8><B_right id="s1" text="Block 2" py="1"/></b8>
+			<b0 status_id="e2"><B_left><text py="1" class="small">Bhf. GH</text></B_left></b0>
+			<b1 status_id="e2" signal_id="B1"><S_hs-0/></b1>
+			<b2 status_id="Z1"><B_010-010/><text py="3" class="small">Block 1</text></b2>
+			<b3 status_id="s2" signal_id="B2"><S_hs-hs/></b3>
+			<b4 status_id="s2"><B_010-010/><text py="3" class="small">Block 2</text></b4>
+			<b5 status_id="s3" signal_id="B2"><S_hs-hs/></b5>
+			<b6 status_id="s3"><B_010-010/><text py="3" class="small">Block 3</text></b6>
+			<b7 status_id="e1" signal_id="A1"><S_0-hs/></b7>
+			<b8 status_id="e1"><B_right><text py="1" class="small">Bhf. GH</text></B_right></b8>
 		</b>
 	</area>
 </desk>
