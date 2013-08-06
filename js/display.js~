@@ -2,7 +2,7 @@
 var area = "bgh";
 
 var url = "http://localhost/stellwerk/api.php";
-//var url = "http://www.iggmp.net/stellwerk/api.php";
+var url = "http://www.iggmp.net/stellwerk/api.php";
 
 var imgPath = "images/";
 var root = "desk";
