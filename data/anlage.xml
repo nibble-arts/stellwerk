@@ -1,31 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<anlage>
-	<comment>
-		<h1>Control structure definition</h1>
-		<h2>Elements</h2>
-		<h3>area</h3>
-		<p>An defined area, which can be a complete railway or station.</p>
-		<h3>block</h3>
-		<p>A block is defined as an area, where only one train at a time must be on it. The block has three definitions: id, left and right.</p>
-		<ul>
-		<li>id: The id must be unique and is the block identification number</li>
-		<li>left: Defines the left side of the block: 'next'=the id of the next block, 'signal'=the signal number or an array of signal numbers.</li>
-		<li>right: Defines the right side in the way it is done with the left side</li>
-		</ul>
-		<h3>switch</h3>
-		<p>The switch is a tiny block with the difference of having a status on which branch the connection is set to.</p>
-		<ul>
-		<li>id: The id must be unique and is the switch identification number</li>
-		<li>left: Defines the left side of the switch. If it is the side of one track, it contains the connected block/switch id. If it is the switchable side, it contains an array with the connected block/switch ids. The index 0 contains the standard direction</li>
-		<li>right: Defines the right side in the way it is done with the left side</li>
-		</ul>
-	</comment>
+<!--
+Control structure definition
 
+		area
+			An defined area, which can be a complete railway or station. The area consists
+			if different elements:
+
+			block
+				A block is defined as an area, where only one train at a time must be on it.
+				The block has three definitions: id, left and right.
+
+				*) id: The id must be unique and is the block identification number
+				*) left: Defines the left side of the block:
+						'next'=the id of the next block,
+						'signal'=the signal number or an array of signal numbers.
+				*) right: Defines the right side in the way it is done with the left side
+
+			switch
+				The switch is a block with the difference of having a status on which
+				branch the connection is set to.
+
+				*) id: The id must be unique and is the switch identification number
+				*) left: Defines the left side of the switch. If it is the side of one track,
+					 it contains the connected block/switch id. If it is the switchable side,
+					 it contains an array with the connected block/switch ids. The index 0
+					 contains the standard direction
+				*) right: Defines the right side in the way it is done with the left side
+
+		route
+			In the route section the possible routes for the trains are defined.
+			
+-->
+
+<anlage>
+	<route>
+		<A>
+			<G1 signal="1">
+				<block><w1/><s1/></block>
+				<switch><w1 status="0" /><w2 status="0" /></switch>
+			</G1>
+			<G2 signal="2">
+				<block><w1/><s2/></block>
+				<switch><w1 status="1" /><w2 status="1" /></switch>
+			</G2>
+			<S03 signal="1">
+				<block><w1/><s1/><w3/></block>
+				<switch><w1 status="0" /><w2 status="0" /><w3 status="0" /></switch>
+			</S03>
+		</A>
+
+		<V1>
+			<G1 signal="1">
+				<switch><w1 status="0" /><w2 status="0" /></switch>
+			</G1>
+			<G2 signal="1">
+				<switch><w1 status="1" /><w2 status="1" /></switch>
+			</G2>
+			<S03 signal="1">
+				<switch><w1 status="0" /><w2 status="0" /><w3 status="0" /></switch>
+			</S03>
+		</V1>
+
+		<R1>
+			<S01 signal="2">
+				<block><w1/><s01/></block>
+				<switch><w1 status="1" /><w2 status="1" /></switch>
+			</S01>
+		</R1>
+		<V1L>
+			<S01 signal="1">
+				<switch><w1 status="1" /><w2 status="1" /></switch>
+			</S01>
+			<G100 signal="1">
+				<switch><w1 status="0" /><w2 status="0" /></switch>
+			</G100>
+		</V1L>
+		
+		<R2>
+			<S01 signal="1">
+				<block><w1/><s01/></block>
+				<switch><w1 status="0" /><w2 status="0" /></switch>
+			</S01>
+		</R2>
+		<V2L>
+			<S01 signal="1">
+				<switch><w1 status="0" /><w2 status="0" /></switch>
+			</S01>
+		</V2L>
+		
+		<V100>
+			<G1>
+				<switch><w1 status="1"/><w2 status="1"/></switch>
+			</G1>
+			<S03>
+				<switch><w1 status="1"/><w2 status="1"/><w3 status="1"/></switch>
+			</S03>
+		</V100>
+	</route>
+	
 	<area name="Silberwaldbahn" id="swb">
 		<area name="Bahnhof Gartenhütte" id="bgh">
 
-			<block id="e1">
+			<block id="s01">
 				<left>
 					<next area="str"></next>
 				</left>
@@ -38,13 +115,19 @@
 			
 			<switch id="w1">
 				<left>e1</left>
-				<right status="0">g1</right>
-				<right status="1">g21</right>
+				<right status="1">g2</right>
+				<right status="0">w2</right>
 			</switch>
 			
+			<switch id="w2">
+				<left status="1">w1</left>
+				<left status="0"></left>
+				<right>g1</right>
+			</switch>
+
 			<block id="g1">
 				<left>
-					<next>w1</next>
+					<next>w2</next>
 					<signal type="hs">R1</signal>
 					<signal type="vs">V1L</signal>
 				</left>
@@ -55,27 +138,11 @@
 				</right>
 			</block>
 			
-			<block id="g21">
+			<block id="g2">
 				<left>
 					<next>w1</next>
 					<signal type="hs">R2</signal>
 					<signal type="vs">V2L</signal>
-				</left>
-				<right>
-					<next>w2</next>
-				</right>
-			</block>
-			
-			<switch id="w2">
-				<left status="0">g21</left>
-				<left status="1"></left>
-				<right status="1">g22</right>
-			</switch>
-			
-			<block id="g22">
-				<left>
-					<next>w2</next>
-					<signal type="vs">V2</signal>
 				</left>
 				<right>
 					<next>w3</next>
@@ -83,16 +150,26 @@
 					<signal type="vs">V2R</signal>
 				</right>
 			</block>
-
+			
+			<block id="g3">
+				<left>
+					<next></next>
+				</left>
+				<right>
+					<next>w2</next>
+					<signal type="vs">V100</signal>
+				</right>
+			</block>
+			
 			<switch id="w3">
 				<left status="0">g1</left>
-				<left status="1">g22</left>
+				<left status="1">g2</left>
 				<right>e2</right>
 			</switch>
 			
-			<block id="e2">
+			<block id="s03">
 				<left>
-					<next>w2</next>
+					<next>w3</next>
 					<signal type="hs">Z2</signal>
 					<signal type="vs">V2</signal>
 				</left>
@@ -123,7 +200,7 @@
 			</left>
 			<right>
 				<next>s03</next>
-				<signal type="Blocksignal">BR1</signal>
+				<signal type="Blocksignal">BR2</signal>
 			</right>
 		</block>
 
@@ -134,7 +211,7 @@
 			</left>
 			<right>
 				<next area="bgh">e1</next>
-				<signal type="Blocksignal">BR1</signal>
+				<signal type="Blocksignal">BR3</signal>
 			</right>
 		</block>
 	</area>

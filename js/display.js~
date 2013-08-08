@@ -2,7 +2,7 @@
 var area = "bgh";
 
 var url = "http://localhost/stellwerk/api.php";
-var url = "http://www.iggmp.net/stellwerk/api.php";
+//var url = "http://www.iggmp.net/stellwerk/api.php";
 
 var imgPath = "images/";
 var root = "desk";
@@ -64,22 +64,29 @@ function api(options,callback) {
 
 //============================================================
 // get block ids from area
-function getBlocks(area) {
+function getBlocks() {
 	api({ data: "cmd=getblock", type: "block" },selectBlocks);
 }
 
 
 //============================================================
 // get switch ids from area
-function getSwitches(area) {
+function getSwitches() {
 	api({ data: "cmd=getswitch", type: "switch" },selectBlocks);
 }
 
 
 //============================================================
 // get signal ids from area
-function getSignals(area) {
+function getSignals() {
 	api({ data: "cmd=getsignal", type: "signal" },selectBlocks);
+}
+
+
+//============================================================
+// get signal ids from area
+function getRoutes(id) {
+	api({ data: "cmd=getroute&start="+id, type: "block" },selectBlocks);
 }
 
 
@@ -92,10 +99,12 @@ function selectBlocks(data,options) {
 		var id = (this).nodeName;
 		var status = $(this).attr("status");
 		var signal = $(this).attr("signal");
+		var start = $(this).attr("start");
 
 		$(".block["+options.type+"_id='"+id+"']")
 			.css("background",selectColor)
-			.attr("select",options.type);
+			.attr("select",options.type)
+			.attr("start",start);
 	});
 
 }
@@ -144,7 +153,6 @@ function createDesk(data,options) {
 				.attr("signal_id",signal_id)
 				.attr("switch_id",switch_id);
 
-
 // insert field images
 			element = $(vx).find("field");
 			$.each(element, function(fx,fv) {
@@ -158,9 +166,10 @@ function createDesk(data,options) {
 				var type = $(fv).attr("type");
 				var px = $(fv).attr("px");
 				var py = $(fv).attr("py");
+				var signal_id = $(vx).attr("signal_id");
 
 				$("#"+id).append("<img src='"+imgPath+"button-"+color+".png' class='button px"+px+" py"+py+"'>")
-					.bind("click", { "id": id, "type": type, }, setPushed );
+					.bind("click", { "id": id, "type": type, "start": signal_id }, setPushed );
 			});
 
 // insert text
@@ -183,6 +192,7 @@ function createDesk(data,options) {
 function setPushed(element, options) {
 	var type = element.data.type;
 	var id = element.data.id;
+	var start = element.data.start;
 
 	if (!$("#"+id).attr("active")) {
 
@@ -195,7 +205,6 @@ function setPushed(element, options) {
 
 // WT
 			case "wt":
-				console.log("WT");
 				break;
 		
 // SGT
@@ -205,7 +214,7 @@ function setPushed(element, options) {
 
 // ST
 			case "st":
-				console.log("ST");
+				getRoutes(start);
 				break;
 
 // HAT
@@ -239,9 +248,11 @@ function setActive(id)
 	if ($("#"+active).attr("select")) {
 		var type = $("#"+active).attr("select");
 		var type_id = $("#"+active).attr(type+"_id");
+		var start = $("#"+active).attr("start");
 		
-		console.log($("#"+active));
-		alert(type+" action on "+type_id);
+
+//TODO send action to api
+		alert(type+" action on "+type_id+", start at "+start);
 
 		clearActive();
 	}
@@ -279,6 +290,7 @@ function clearActive() {
 	$(".block")
 		.removeAttr("active")
 		.removeAttr("select")
+		.removeAttr("start")
 		.css("background-color","");
 
 	$("#id-input").val("");

@@ -42,13 +42,19 @@ class Control {
 
 
 //==============================================================================
-// display comment of control data
-	function display_comment() {
-		$xslt = new XSLTProcessor(new SimpleXMLElement($xsl));
-		$xslt->importStylesheet($xsl);
-		echo $xslt->transformToXml($this->control);
+// get list of possible routes
+	function get_route($start) {
+		return $this->control->route->$start;
+	}
+
+
+//==============================================================================
+// get list of possible signals
+	function get_signal() {
+		return $this->control->area->xPath("//signal");
 	}
 }
+
 
 
 

@@ -58,6 +58,30 @@ Difinitions:
 		</light>
 	</B_right>
 
+	<B_010-100>
+		<field>010-010-000.png</field>
+		<field>000-400-100.png</field>
+	</B_010-100>
+
+	<B_010-001>
+	</B_010-001>
+
+	<B_100-010>
+	</B_100-010>
+
+	<B_001-010>
+	</B_001-010>
+
+	<B_001-100>
+		<field>001-001-000.png</field>
+		<field>000-400-100.png</field>
+	</B_001-100>
+
+	<B_100-001>
+		<field>100-100-000.png</field>
+		<field>000-004-001.png</field>
+	</B_100-001>
+
 <!--=================================================
   Signal fields
 -->
@@ -155,6 +179,12 @@ Difinitions:
 		<field>010-010-010.png</field>
 		<field>100-100-000.png</field>
 	</W_lr>
+
+	<W_ll>
+		<button type="wt" color="black" px="2" py="2"/>
+		<field>010-010-010.png</field>
+		<field>001-001-000.png</field>
+	</W_ll>
 	
 <!--=================================================
   Group fields
