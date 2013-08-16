@@ -63,7 +63,7 @@
 }
 
 .center {
-	text-align: center;
+	text-align: middle;
 }
 
 #status {

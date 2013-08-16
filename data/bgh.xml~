@@ -47,8 +47,8 @@ Control desk layout definition
 
 			<b30 status_id="w3" switch_id="W3"><W_ll/></b30>
 
-			<b40 status_id="s03" signal_id="Z"><S_hs-0/></b40>
-			<b41 status_id="s03" signal_id="V2"><S_vs-0/></b41>
+			<b40 status_id="s03" signal_id="A"><S_hs-0/></b40>
+			<b41 status_id="s03" signal_id="V1"><S_vs-0/></b41>
 			<b42 status_id="s03" block_id="S03"><B_010-B-010/></b42>
 			<b43 status_id="s03"><B_right><text py="1" class="small">Block 1</text></B_right></b43>
 		</b>

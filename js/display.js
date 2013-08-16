@@ -176,6 +176,12 @@ function createDesk(data,options) {
 			element = $(vx).find("text");
 			$.each (element, function(fx,fv) {
 				var text = $(fv).text();
+
+// text parameter => get attribute text
+				if (text[0] == "$") {
+					text = $(fv).parent().attr(text.substring(1));
+				}
+
 				var py = $(fv).attr("py");
 				var cls = $(fv).attr("class");
 

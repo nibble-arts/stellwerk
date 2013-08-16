@@ -37,6 +37,7 @@ Difinitions:
 	
 	<B_010-B-010>
 		<field>010-010.png</field>
+		<text py="3" class="small">$block_id</text>
 		<button type="gt" color="black" px="2" py="2"></button>
 	</B_010-B-010>
 	

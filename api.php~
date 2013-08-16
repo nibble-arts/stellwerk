@@ -39,7 +39,6 @@ include_once("signal.php");
 $options = array(
 	"path" => "data/",
 	"control" => "anlage.xml",
-	"route" => "route.xml",
 	"desk" => "bgh.xml",
 	"blocks" => "blocks.xml"
 );
