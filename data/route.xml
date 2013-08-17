@@ -9,6 +9,8 @@ Route structure definition
 -->
 
 <route>
+<!--==============================-->
+<!-- Einfahrt links -->
 	<A>
 		<G1 signal="1">
 			<block><w1/><s1/></block>
@@ -18,10 +20,10 @@ Route structure definition
 			<block><w1/><s2/></block>
 			<switch><w1 status="1" /><w2 status="1" /></switch>
 		</G2>
-		<S01 signal="1">
+		<S03 signal="1">
 			<block><w1/><s1/><w3/></block>
 			<switch><w1 status="0" /><w2 status="0" /><w3 status="0" /></switch>
-		</S01>
+		</S03>
 	</A>
 
 	<V1>
@@ -36,6 +38,8 @@ Route structure definition
 		</S03>
 	</V1>
 
+<!--==============================-->
+<!-- Ausfahrt links -->
 	<R1>
 		<S01 signal="2">
 			<block><w1/><s01/></block>
@@ -60,6 +64,10 @@ Route structure definition
 			<block><w1/><s01/></block>
 			<switch><w1 status="0" /><w2 status="0" /></switch>
 		</S01>
+		<S03 signal="1">
+			<block><w1/><s01/><s02/><s03/></block>
+			<switch><w1 status="0" /><w2 status="0" /></switch>
+		</S03>
 	</R2>
 	<V2L>
 		<S01 signal="1">
@@ -67,6 +75,8 @@ Route structure definition
 		</S01>
 	</V2L>
 	
+<!--==============================-->
+<!-- Abstellgleis -->
 	<V100>
 		<G1>
 			<switch><w1 status="1"/><w2 status="1"/></switch>
@@ -76,6 +86,75 @@ Route structure definition
 		</S03>
 	</V100>
 
+<!--==============================-->
+<!-- Einfahrt Rechts -->
+
+	<Z>
+		<G1 signal="1">
+			<block><w3/><s1/></block>
+			<switch><w3 status="0" /></switch>
+		</G1>
+		<G2 signal="2">
+			<block><w3/><s2/></block>
+			<switch><w3 status="1" /></switch>
+		</G2>
+		<S01 signal="1">
+			<block><w1/><s1/><w3/></block>
+			<switch><w1 status="0" /><w2 status="0" /><w3 status="0" /></switch>
+		</S01>
+	</Z>
+
+	<V2>
+		<G1 signal="1">
+			<switch><w3 status="0" /></switch>
+		</G1>
+		<G2 signal="1">
+			<switch><w3 status="1" /></switch>
+		</G2>
+		<S01 signal="1">
+			<switch><w1 status="0" /><w2 status="0" /><w3 status="0" /></switch>
+		</S01>
+		<G100 signal="1">
+			<switch><w1 status="0" /><w2 status="1" /><w3 status="1" /></switch>
+		</G100>
+	</V2>
+
+<!--==============================-->
+<!-- Ausfahrt rechts -->
+	<H1>
+		<S03 signal="2">
+			<block><w3/><s03/><s02/><s01/></block>
+			<switch><w3 status="0" /></switch>
+		</S03>
+		<S01 signal="2">
+			<block><w3/><s03/><s02/><s01/></block>
+			<switch><w3 status="0" /></switch>
+		</S01>
+	</H1>
+	<V1R>
+		<S03 signal="1">
+			<switch><w3 status="0" /></switch>
+		</S03>
+	</V1R>
+	
+	<H2>
+		<S03 signal="1">
+			<block><w3/><s03/><s02/><s01/></block>
+			<switch><w3 status="1" /></switch>
+		</S03>
+		<S01 signal="2">
+			<block><w3/><s03/><s02/><s01/></block>
+			<switch><w3 status="0" /></switch>
+		</S01>
+	</H2>
+	<V2R>
+		<S03 signal="1">
+			<switch><w3 status="1" /></switch>
+		</S03>
+	</V2R>
+	
+<!--==============================-->
+<!-- Strecke -->
 	<BR1>
 		<S01/>
 	</BR1>
