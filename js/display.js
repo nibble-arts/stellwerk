@@ -119,12 +119,14 @@ function createDesk(data,options) {
 	var element;
 	var id;
 	var full = $(data).find("area").attr("full");
+	var order = $(data).find("area").attr("order");
 	var area = options.name;
 	var height = $(data).find("area").children().length;
 	var width = "";
 
 // create desk container
-	$("#"+root)
+// on order position
+	$("#"+root+"_"+order)
 		.append("<div class='title'>"+full+"</div>")
 		.append("<div id='"+area+"' full='"+full+"' class='desk' style='height: "+parseInt(height*blocksize)+"'>");
 

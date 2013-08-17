@@ -35,12 +35,13 @@ include_once("signal.php");
 
 //=========================================================
 // ajax option definiton
+//TODO get from configuration file
 
 $options = array(
 	"path" => "data/",
 	"control" => "anlage.xml",
 	"route" => "route.xml",
-	"desk" => "bgh.xml",
+	"desk" => "silberwaldbahn.xml",
 	"blocks" => "blocks.xml"
 );
 
