@@ -35,7 +35,7 @@ Control desk layout definition
 
 			<b10 status_id="w1" switch_id="W1"><W_rr/></b10>
 
-			<b20 status_id="g2"><B_010-010/></b20>
+			<b20 status_id="g2"><B_010-010/><field>0010.png</field></b20>
 			<b21 status_id="g2" signal_id="R2"><S_hs-0/></b21>
 			<b22 status_id="g2" signal_id="V2L"><S_vs-0/></b22>
 			<b23 status_id="g2"><B_010-010></B_010-010></b23>
@@ -43,7 +43,7 @@ Control desk layout definition
 			<b25 status_id="g2"><B_010-010></B_010-010></b25>
 			<b26 status_id="g2" signal_id="V2R"><S_0-vs/></b26>
 			<b27 status_id="g2" signal_id="H2"><S_0-hs/></b27>
-			<b28 status_id="g2"><B_010-010/></b28>
+			<b28 status_id="g2"><B_010-010/><field>0001.png</field></b28>
 
 			<b30 status_id="w3" switch_id="W3"><W_ll/></b30>
 
@@ -57,7 +57,7 @@ Control desk layout definition
 			<c01/>
 			<c02 status_id="g100" block_id="G100"><B_010-B-010><text py="1" class="small">Gleis 100</text></B_010-B-010></c02>
 			<c03 status_id="g100" signal_id="V100"><S_0-vs/></c03>
-			<c04 status_id="g100"><B_010-010></B_010-010></c04>
+			<c04 status_id="g100"><B_010-010></B_010-010><field>0100.png</field></c04>
 
 			<c10 status_id="w2" switch_id="W2"><W_lr/></c10>
 
@@ -70,7 +70,7 @@ Control desk layout definition
 			<c26 status_id="g1" signal_id="H1"><S_0-hs/></c26>
 			<c27 status_id="g1"><B_010-100/></c27>
 			
-			<c30/>
+			<c30><field>1000.png</field></c30>
 			<c31/>
 			<c32/>
 			<c33/>

@@ -28,8 +28,7 @@ Difinitions:
 -->
 	<B_010-010>
 		<field>010-020-010.png</field>
-		<light pos="020">
-			<status id="0">black</status>
+		<light px="2" py="2">
 			<status id="1">yellow</status>
 			<status id="2">red</status>
 		</light>
@@ -42,8 +41,7 @@ Difinitions:
 	
 	<B_left>
 		<field>000-040-010.png</field>
-		<light pos="040">
-			<status id="0">black</status>
+		<light px="3" py="2">
 			<status id="1">yellow</status>
 			<status id="2">red</status>
 		</light>
@@ -51,8 +49,7 @@ Difinitions:
 	
 	<B_right>
 		<field>010-010-000.png</field>
-		<light pos="010">
-			<status id="0">black</status>
+		<light px="1" py="2">
 			<status id="1">yellow</status>
 			<status id="2">red</status>
 		</light>
@@ -61,6 +58,14 @@ Difinitions:
 	<B_010-100>
 		<field>010-010-000.png</field>
 		<field>000-400-100.png</field>
+		<light px="1" py="2">
+			<status id="1">yellow</status>
+			<status id="2">red</status>
+		</light>
+		<light px="3" py="1">
+			<status id="1">yellow</status>
+			<status id="2">red</status>
+		</light>
 	</B_010-100>
 
 	<B_010-001>
@@ -91,18 +96,15 @@ Difinitions:
 		<field>vs-0.png</field>
 		<text py="3" class="small">$signal_id</text>
 		<button type="st" color="blue" px="2" py="2"></button>
-		<light pos="100">
-			<status id="0">black</status>
+		<light px="1" py="2">
 			<status id="1">yellow</status>
 			<status id="2">red</status>
 		</light>
 
-		<light pos="100">
+		<light px="1" py="1">
 			<signal id="0">white</signal>
-			<signal id="1">black</signal>
 		</light>
-		<light pos="200">
-			<signal id="0">black</signal>
+		<light px="2" py="1">
 			<signal id="1">white</signal>
 		</light>
 	</S_vs-0>
@@ -112,16 +114,15 @@ Difinitions:
 		<field>0-vs.png</field>
 		<text py="1" class="small">$signal_id</text>
 		<button type="st" color="blue" px="2" py="2"></button>
-		<light  pos="100">
-			<status id="0">black</status>
+		<light  px="3" py="2">
 			<status id="1">yellow</status>
 			<status id="2">red</status>
 		</light>
 		
-		<light pos="004">
+		<light px="3" py="3">
 			<signal id="0">white</signal>
-			<signal id="1" pos="004">black</signal>
-			<signal id="0" pos="002">black</signal>
+		</light>
+		<light px="2" py="3">
 			<signal id="1" pos="002">white</signal>
 		</light>
 	</S_0-vs>
@@ -131,14 +132,16 @@ Difinitions:
 		<field>hs-0.png</field>
 		<text py="3" class="small">$signal_id</text>
 		<button type="st" color="black" px="2" py="2"></button>
-		<light status="0" pos="100">black</light>
-		<light status="1" pos="100">yellow</light>
-		<light status="2" pos="100">red</light>
-
-		<light signal="0" pos="100">red</light>
-		<light signal="1" pos="100">black</light>
-		<light signal="0" pos="200">black</light>
-		<light signal="1" pos="200">green</light>
+		<light px="1" py="2">
+			<status id="1">yellow</status>
+			<status id="2">red</status>
+		</light>
+		<light px="1" py="1">
+			<signal id="0">red</signal>
+		</light>
+		<light px="2" py="1">
+			<signal id="1">green</signal>
+		</light>
 	</S_hs-0>
 	
 	<S_0-hs>
@@ -146,14 +149,17 @@ Difinitions:
 		<field>0-hs.png</field>
 		<text py="1" class="small">$signal_id</text>
 		<button type="st" color="black" px="2" py="2"></button>
-		<light status="0" pos="100">black</light>
-		<light status="1" pos="100">yellow</light>
-		<light status="2" pos="100">red</light>
-
-		<light signal="0" pos="004">red</light>
-		<light signal="1" pos="004">black</light>
-		<light signal="0" pos="002">black</light>
-		<light signal="1" pos="002">green</light>
+		<light px="3" py="2">
+			<status id="1">yellow</status>
+			<status id="2">red</status>
+		</light>
+		
+		<light px="3" py="3">
+			<signal id="0">red</signal>
+		</light>
+		<light px="2" py="3">
+			<signal id="1">green</signal>
+		</light>
 	</S_0-hs>
 	
 <!--=================================================
@@ -164,18 +170,45 @@ Difinitions:
 		<button type="wt" color="black" px="2" py="2"/>
 		<field>010-040-010.png</field>
 		<field>000-004-001.png</field>
+
+		<light px="3" py="2">
+			<status id="0-1">yellow</status>
+			<status id="0-2">red</status>
+		</light>
+		<light px="3" py="3">
+			<status id="1-1">yellow</status>
+			<status id="1-2">red</status>
+		</light>
 	</W_rr>
 
 	<W_lr>
 		<button type="wt" color="black" px="2" py="2"/>
 		<field>010-010-010.png</field>
 		<field>100-100-000.png</field>
+
+		<light px="1" py="2">
+			<status id="0-1">yellow</status>
+			<status id="0-2">red</status>
+		</light>
+		<light px="1" py="1">
+			<status id="1-1">yellow</status>
+			<status id="1-2">red</status>
+		</light>
 	</W_lr>
 
 	<W_ll>
 		<button type="wt" color="black" px="2" py="2"/>
 		<field>010-010-010.png</field>
 		<field>001-001-000.png</field>
+
+		<light px="1" py="2">
+			<status id="0-1">yellow</status>
+			<status id="0-2">red</status>
+		</light>
+		<light px="1" py="3">
+			<status id="1-1">yellow</status>
+			<status id="1-2">red</status>
+		</light>
 	</W_ll>
 	
 <!--=================================================

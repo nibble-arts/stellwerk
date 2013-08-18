@@ -1,9 +1,6 @@
-// set buttons
-var area = "bgh";
 
-var url = "http://localhost/stellwerk/api.php";
-//var url = "http://www.iggmp.net/stellwerk/api.php";
 
+var url;
 var imgPath = "images/";
 var root = "desk";
 var blocksize = 64;
@@ -13,12 +10,16 @@ var counter;
 var timeout = 0;
 var active;
 
+var syncTime = 5000; // sync desk every 5 seconds
+
 
 //============================================================
 // init events
 
-function init() {
+function init(initName, initUrl) {
 // load desk from api
+	url = initUrl;
+	
 	api({ data: "cmd=getareas" },function(data) {
 
 		$.each($(data).find("area"), function (i,v) {
@@ -31,6 +32,29 @@ function init() {
 	});
 	
 	$("#do").bind("click",setDebug);
+	
+	
+// start sync interval
+//	setInterval(sync,syncTime);
+
+// start watchdog
+//	setInterval(watchdog,syncTime*3.14);
+}
+
+
+//============================================================
+// synchronice desk with controll
+function sync() {
+// start sync process
+	setStatusDisplay("syncStatus",1);
+
+	getStatus();
+}
+
+
+//============================================================
+// sync watchdog
+function watchdog() {
 }
 
 
@@ -59,6 +83,13 @@ function api(options,callback) {
 			alert("error: " + xhr.responseText + " " + msg);
 		}
 	});
+}
+
+
+//============================================================
+// get status from api
+function getStatus() {
+	api({ data: "cmd=getstatus" },syncStatus);
 }
 
 
@@ -111,6 +142,19 @@ function selectBlocks(data,options) {
 
 
 //============================================================
+// synchronice status with desk
+
+function syncStatus(data,options) {
+
+//TODO write status to desk
+
+
+// sync completed
+	setStatusDisplay("syncStatus",2);
+}
+
+
+//============================================================
 // create the desk
 
 function createDesk(data,options) {
@@ -124,11 +168,13 @@ function createDesk(data,options) {
 	var height = $(data).find("area").children().length;
 	var width = "";
 
+
 // create desk container
 // on order position
 	$("#"+root+"_"+order)
 		.append("<div class='title'>"+full+"</div>")
 		.append("<div id='"+area+"' full='"+full+"' class='desk' style='height: "+parseInt(height*blocksize)+"'>");
+
 
 //============================================================
 // create blocks
@@ -143,6 +189,7 @@ function createDesk(data,options) {
 // create block
 			$("#"+area).append("<div id='"+id+"' class='block "+bg_color+"' style='left: "+parseInt(ix*blocksize)+";top: "+parseInt(iy*blocksize)+";'>");
 			
+
 //============================================================
 // insert reference ids
 			var status_id = $(vx).attr("status_id");
@@ -152,15 +199,20 @@ function createDesk(data,options) {
 
 			$("#"+id).attr("status_id",status_id)
 				.attr("block_id",block_id)
+				.attr("status_id",status_id)
 				.attr("signal_id",signal_id)
 				.attr("switch_id",switch_id);
 
+
+//============================================================
 // insert field images
 			element = $(vx).find("field");
 			$.each(element, function(fx,fv) {
 				$("#"+id).append("<img src='"+imgPath+$(fv).text()+"' class='block'>");
 			});
 
+
+//============================================================
 // insert buttons
 			element = $(vx).find("button");
 			$.each (element, function(fx,fv) {
@@ -174,6 +226,29 @@ function createDesk(data,options) {
 					.bind("click", { "id": id, "type": type, "start": signal_id }, setPushed );
 			});
 
+
+//============================================================
+// insert lights
+			element = $(vx).find("light");
+			$.each (element, function(fx,fv) {
+				var px = $(fv).attr("px");
+				var py = $(fv).attr("py");
+
+			// off light image
+				$("#"+id).append("<img src='"+imgPath+"black.png' class='offlight px"+px+" py"+py+"'>");
+			
+			// create lights
+				$.each ($(fv).children(), function(lx,lv) {
+					var name = (lv).nodeName;
+					var lightId = $(lv).attr("id");
+					var color = $(lv).text();
+
+					$("#"+id).append("<img block_id='"+status_id+"' signal_id='"+signal_id+"' light_id='"+name+lightId+"' src='"+imgPath+color+".png' class='light off px"+px+" py"+py+"'>");
+				});
+			});
+
+
+//============================================================
 // insert text
 			element = $(vx).find("text");
 			$.each (element, function(fx,fv) {
@@ -192,6 +267,17 @@ function createDesk(data,options) {
 		});
 	});
 	$("#"+root).append("<div style='clear:both'/>");
+
+
+// activate status/signal 0
+	$("[light_id='signal0']").removeClass("off");
+
+
+// set desk status to ok 
+	setStatusDisplay("deskStatus",2);
+
+// sync status with api
+	syncStatus();
 }
 
 
@@ -325,6 +411,17 @@ console.log("set "+id+" to signal "+status);
 function setLight(id,status) {
 
 }
+
+
+//============================================================
+function setStatusDisplay(id, status) {
+	var color = new Array("lightred","yellow","lightgreen");
+	
+	$("#"+id).css("background-color",color[status]);
+}
+
+
+
 
 
 //============================================================

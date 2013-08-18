@@ -34,7 +34,8 @@ class Block {
 	
 // return block data
 	function get_block($block) {
-		if ($block) {
+// filter direct field entry
+		if ($block and $block != "field") {
 			$data = $this->blocks->xPath("//{$block}");
 			if ($data) return $data[0];
 		}

@@ -31,6 +31,7 @@ include_once("control.php");
 include_once("desk.php");
 include_once("route.php");
 include_once("signal.php");
+include_once("status.php");
 
 
 //=========================================================
@@ -51,6 +52,7 @@ $options = array(
 
 $control = new Control($options);
 $desk = new Desk($options);
+$status = new Status($options);
 $output = new simpleXmlElement("<apiXml></apiXml>");
 $error = "no error";
 
@@ -60,10 +62,10 @@ if (isset($_GET["start"])) $start = $_GET["start"];
 
 
 //=========================================================
-// parse api call */
+// parse api call
 
 if (isset($cmd)) {
-	
+
 	switch($cmd) {
 
 // get list of defined areas
@@ -126,6 +128,28 @@ if (isset($cmd)) {
 				$error = "Api no route start defined";
 			break;
 			
+//=========================================================
+// get status of railway
+		case "getstatus":
+			if (isset($id)) {
+			print_pre($id);
+			} else {
+			
+			
+//TODO get status
+//				$status->status_exists("w1");
+
+
+
+				$output = new simpleXmlElement("
+					<apiXml><data>
+						<w1 status='0' position='0'/>
+						<A status='0' signal='1'/>
+					</data></apiXml>
+				");
+			}
+			break;
+
 
 // unknow command
 		default:
@@ -140,6 +164,7 @@ else
 
 // insert error message
 simplexml_insert($output,new simpleXmlElement("<error>{$error}</error>"));
+
 
 // send result
 echo $output->asXML();

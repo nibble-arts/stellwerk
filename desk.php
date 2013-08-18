@@ -55,9 +55,7 @@ class Desk {
 				foreach($entry as $col) {
 					$name = (string)$col->children()->getName();
 
-//					$col[0] = "";
 					simplexml_insert($col[0],$this->blocks->get_block($name));
-	//				$this->blocks->get_block($col->children()->getName());
 				}
 			}
 

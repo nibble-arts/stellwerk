@@ -1,7 +1,34 @@
+body {
+	font-family: sans-serif;
+	font-size: 11pt;
+}
+
 .desk {
 	margin-top: 10px;
 	position: relative;
 	border: 1px solid gray;
+}
+
+.title {
+	font-family: sans-serif;
+	font-size: 11pt;
+	font-weight: bold;
+	margin-top: 3pt;
+	margin-bottom: -9pt;
+}
+
+#status {
+	position: absolute;
+	bottom: 0;
+	margin-bottom: 2pt;
+	width: 100%;
+}
+
+.status {
+	border: 1px solid grey;
+	width: 120px;
+	padding: 2px;
+	background-color: red;
 }
 
 .block {
@@ -26,6 +53,16 @@
 	width: 21px;
 	position: absolute;
 	z-index: 80;
+}
+
+.off {
+	visibility: hidden;
+}
+
+.offlight {
+	width: 21px;
+	position: absolute;
+	z-index: 70;
 }
 
 .button {
@@ -54,21 +91,8 @@
 	background-color: #e0e0e0;
 }
 
-.title {
-	font-family: sans-serif;
-	font-size: 11pt;
-	font-weight: bold;
-	margin-top: 3pt;
-	margin-bottom: -9pt;
-}
-
 .center {
 	text-align: center;
-}
-
-#status {
-	position: absolute;
-	bottom: 0;
 }
 
 .px1 {
