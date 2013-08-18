@@ -55,6 +55,9 @@ Difinitions:
 		</light>
 	</B_right>
 
+<!--=================================================
+  corner fields
+-->
 	<B_010-100>
 		<field>010-010-000.png</field>
 		<field>000-400-100.png</field>
@@ -69,12 +72,42 @@ Difinitions:
 	</B_010-100>
 
 	<B_010-001>
+		<field>010-010-000.png</field>
+		<field>000-004-001.png</field>
+		<light px="1" py="2">
+			<status id="1">yellow</status>
+			<status id="2">red</status>
+		</light>
+		<light px="3" py="3">
+			<status id="1">yellow</status>
+			<status id="2">red</status>
+		</light>
 	</B_010-001>
 
 	<B_100-010>
+		<field>000-010-010.png</field>
+		<field>100-100-000.png</field>
+		<light px="1" py="3">
+			<status id="1">yellow</status>
+			<status id="2">red</status>
+		</light>
+		<light px="1" py="1">
+			<status id="1">yellow</status>
+			<status id="2">red</status>
+		</light>
 	</B_100-010>
 
 	<B_001-010>
+		<field>000-010-010.png</field>
+		<field>001-001-000.png</field>
+		<light px="1" py="3">
+			<status id="1">yellow</status>
+			<status id="2">red</status>
+		</light>
+		<light px="3" py="2">
+			<status id="1">yellow</status>
+			<status id="2">red</status>
+		</light>
 	</B_001-010>
 
 	<B_001-100>
@@ -166,10 +199,11 @@ Difinitions:
   Switch fields
 -->
 
-	<W_rr>
+	<W_010-011>
 		<button type="wt" color="black" px="2" py="2"/>
 		<field>010-040-010.png</field>
 		<field>000-004-001.png</field>
+		<text py="1" class="small">$switch_id</text>
 
 		<light px="3" py="2">
 			<status id="0-1">yellow</status>
@@ -179,12 +213,13 @@ Difinitions:
 			<status id="1-1">yellow</status>
 			<status id="1-2">red</status>
 		</light>
-	</W_rr>
+	</W_010-011>
 
-	<W_lr>
+	<W_110-010>
 		<button type="wt" color="black" px="2" py="2"/>
 		<field>010-010-010.png</field>
 		<field>100-100-000.png</field>
+		<text py="3" class="small">$switch_id</text>
 
 		<light px="1" py="2">
 			<status id="0-1">yellow</status>
@@ -194,12 +229,29 @@ Difinitions:
 			<status id="1-1">yellow</status>
 			<status id="1-2">red</status>
 		</light>
-	</W_lr>
+	</W_110-010>
 
-	<W_ll>
+	<W_010-110>
+		<button type="wt" color="black" px="2" py="2"/>
+		<field>010-040-010.png</field>
+		<field>000-400-100.png</field>
+		<text py="3" class="small">$switch_id</text>
+
+		<light px="3" py="2">
+			<status id="0-1">yellow</status>
+			<status id="0-2">red</status>
+		</light>
+		<light px="3" py="1">
+			<status id="1-1">yellow</status>
+			<status id="1-2">red</status>
+		</light>
+	</W_010-110>
+
+	<W_011-010>
 		<button type="wt" color="black" px="2" py="2"/>
 		<field>010-010-010.png</field>
 		<field>001-001-000.png</field>
+		<text py="1" class="small">$switch_id</text>
 
 		<light px="1" py="2">
 			<status id="0-1">yellow</status>
@@ -209,8 +261,50 @@ Difinitions:
 			<status id="1-1">yellow</status>
 			<status id="1-2">red</status>
 		</light>
-	</W_ll>
+	</W_011-010>
 	
+	<W_110-001>
+		<button type="wt" color="black" px="2" py="2"/>
+		<field>100-100-000.png</field>
+		<field>000-004-001.png</field>
+		<field>010-010-000.png</field>
+		<text py="1" class="small">$switch_id</text>
+
+		<light px="1" py="1">
+			<status id="0-1">yellow</status>
+			<status id="0-2">red</status>
+		</light>
+		<light px="1" py="2">
+			<status id="1-1">yellow</status>
+			<status id="1-2">red</status>
+		</light>
+		<light px="3" py="3">
+			<status id="1">yellow</status>
+			<status id="2">red</status>
+		</light>
+	</W_110-001>
+
+	<W_001-110>
+		<button type="wt" color="black" px="2" py="2"/>
+		<field>001-001-000.png</field>
+		<field>000-400-100.png</field>
+		<field>000-010-010.png</field>
+		<text py="1" class="small">$switch_id</text>
+
+		<light px="3" py="1">
+			<status id="0-1">yellow</status>
+			<status id="0-2">red</status>
+		</light>
+		<light px="3" py="2">
+			<status id="1-1">yellow</status>
+			<status id="1-2">red</status>
+		</light>
+		<light px="1" py="3">
+			<status id="1">yellow</status>
+			<status id="2">red</status>
+		</light>
+	</W_001-110>
+
 <!--=================================================
   Group fields
 -->

@@ -83,6 +83,11 @@ body {
 	font-size: 70%;
 }
 
+.strong {
+	font-size: 75%;
+	font-weight: bold;
+}
+
 .group-color {
 	background-color: #b0b0ff;
 }

@@ -10,156 +10,322 @@ Route structure definition
 
 <route>
 <!--==============================-->
+<!-- Bahnhof Gartenhütte -->
 <!-- Einfahrt links -->
 	<A>
 		<G1 signal="1">
-			<block><w1/><s1/></block>
-			<switch><w1 status="0" /><w2 status="0" /></switch>
+			<block><gv1/><w1/><g1/></block>
+			<switch><w6 status="0"/></switch>
 		</G1>
 		<G2 signal="2">
-			<block><w1/><s2/></block>
-			<switch><w1 status="1" /><w2 status="1" /></switch>
+			<block><gv1/><w1/><s21/><s2/></block>
+			<switch><w6 status="1"/></switch>
 		</G2>
-		<S03 signal="1">
-			<block><w1/><s1/><w3/></block>
-			<switch><w1 status="0" /><w2 status="0" /><w3 status="0" /></switch>
-		</S03>
+		<BO4 signal="1">
+			<block><gv1/><w6/><g1/><w5/><gv4/></block>
+			<switch><w6 status="0"/><w5 status="0" /></switch>
+		</BO4>
+
+		<G1_DE signal="1">
+			<block><w5/><s1/><w6/></block>
+			<switch><w5 status="0" /><w6 status="0" /><w830 status="0"/></switch>
+		</G1_DE>
+		<G2_DE signal="1">
+			<block><w5/><s1/><w6/></block>
+			<switch><w5 status="0" /><w6 status="0" /><w830 status="0"/></switch>
+		</G2_DE>
 	</A>
 
 	<V1>
 		<G1 signal="1">
-			<switch><w1 status="0" /><w2 status="0" /></switch>
+			<switch><w6 status="0"/></switch>
 		</G1>
 		<G2 signal="1">
-			<switch><w1 status="1" /><w2 status="1" /></switch>
+			<switch><w6 status="1" /><w810 status="0" /></switch>
 		</G2>
-		<S03 signal="1">
-			<switch><w1 status="0" /><w2 status="0" /><w3 status="0" /></switch>
-		</S03>
+		<GV4 signal="1">
+			<switch><w6 status="0" /><w5 status="0" /></switch>
+		</GV4>
 	</V1>
 
 <!--==============================-->
 <!-- Ausfahrt links -->
-	<R1>
-		<S01 signal="2">
-			<block><w1/><s01/></block>
-			<switch><w1 status="1" /><w2 status="1" /></switch>
-		</S01>
-		<S03 signal="2">
-			<block><w1/><s01/><s02/><s03/></block>
-			<switch><w1 status="1" /><w2 status="1" /></switch>
-		</S03>
-	</R1>
-	<V1L>
-		<S01 signal="1">
-			<switch><w1 status="1" /><w2 status="1" /></switch>
-		</S01>
-		<G100 signal="1">
-			<switch><w1 status="0" /><w2 status="0" /></switch>
-		</G100>
-	</V1L>
+	<H1>
+		<BW4 signal="1">
+			<block><w6/><gv1/></block>
+			<switch><w6 status="0" /></switch>
+		</BW4>
+		<G1_DE signal="1">
+			<block><w5/><s1/><w6/></block>
+			<switch><w5 status="0" /><w6 status="0" /><w830 status="0"/></switch>
+		</G1_DE>
+		<G2_DE signal="1">
+			<block><w5/><s1/><w6/></block>
+			<switch><w5 status="0" /><w6 status="0" /><w830 status="0"/></switch>
+		</G2_DE>
+	</H1>
+
+	<V21>
+		<GV1 signal="1">
+			<switch><w6 status="0" /></switch>
+		</GV1>
+		<G830>
+			<switch><w6 status="0" /><w830 status="1"/></switch>
+		</G830>
+	</V21>
 	
-	<R2>
-		<S01 signal="1">
-			<block><w1/><s01/></block>
-			<switch><w1 status="0" /><w2 status="0" /></switch>
-		</S01>
-		<S03 signal="1">
-			<block><w1/><s01/><s02/><s03/></block>
-			<switch><w1 status="0" /><w2 status="0" /></switch>
-		</S03>
-	</R2>
-	<V2L>
-		<S01 signal="1">
-			<switch><w1 status="0" /><w2 status="0" /></switch>
-		</S01>
-	</V2L>
-	
+	<H2>
+		<BW4 signal="2">
+			<block><w6/><gv1/></block>
+			<switch><w6 status="1" /><w5 status="0" /></switch>
+		</BW4>
+		<G1_DE signal="1">
+			<block><w5/><s1/><w6/></block>
+			<switch><w5 status="0" /><w6 status="0" /><w830 status="0"/></switch>
+		</G1_DE>
+		<G2_DE signal="1">
+			<block><w5/><s1/><w6/></block>
+			<switch><w5 status="0" /><w6 status="0" /><w830 status="0"/></switch>
+		</G2_DE>
+	</H2>
+
+	<V22>
+		<GV1 signal="1">
+			<switch><w6 status="1" /><w5 status="0" /></switch>
+		</GV1>
+		<G830>
+			<switch><w6 status="1" /><w830 status="1"/></switch>
+		</G830>
+	</V22>
+		
 <!--==============================-->
-<!-- Abstellgleis -->
-	<V100>
+<!-- Abstellgruppe -->
+	<V800>
+		<GV1>
+			<switch><w6 status="1"/><w5 status="0"/></switch>
+		</GV1>
+		<G800>
+			<switch><w5 status="1"/></switch>
+		</G800>
+		<G830>
+		</G830>
+	</V800>
+
+	<V801>
+		<G2>
+			<switch><w810 status="1"/></switch>
+		</G2>
+		<GV4>
+			<switch><w810 status="1"/><w5 status="1"/></switch>
+		</GV4>
+	</V801>
+	
+	<V830>
+		<GV1>
+		</GV1>
+		
 		<G1>
-			<switch><w1 status="1"/><w2 status="1"/></switch>
 		</G1>
-		<S03>
-			<switch><w1 status="1"/><w2 status="1"/><w3 status="1"/></switch>
-		</S03>
-	</V100>
+		
+		<G2>
+		</G2>
+		
+		<GV4>
+		</GV4>
+	</V830>
 
 <!--==============================-->
 <!-- Einfahrt Rechts -->
 
 	<Z>
 		<G1 signal="1">
-			<block><w3/><s1/></block>
-			<switch><w3 status="0" /></switch>
+			<block><w5/><g1/></block>
+			<switch><w5 status="0" /></switch>
 		</G1>
 		<G2 signal="2">
-			<block><w3/><s2/></block>
-			<switch><w3 status="1" /></switch>
+			<block><w5/><s2/><s21/></block>
+			<switch><w5 status="1" /><w810 status="0"/></switch>
 		</G2>
-		<S01 signal="1">
-			<block><w1/><s1/><w3/></block>
-			<switch><w1 status="0" /><w2 status="0" /><w3 status="0" /></switch>
-		</S01>
+
+		<BW4 signal="1">
+			<block><w5/><s1/><w6/></block>
+			<switch><w5 status="0" /><w6 status="0" /><w830 status="0"/></switch>
+		</BW4>
+
+		<G1_DE signal="1">
+			<block><w5/><s1/><w6/></block>
+			<switch><w5 status="0" /><w6 status="0" /><w830 status="0"/></switch>
+		</G1_DE>
+		<G2_DE signal="1">
+			<block><w5/><s1/><w6/></block>
+			<switch><w5 status="0" /><w6 status="0" /><w830 status="0"/></switch>
+		</G2_DE>
 	</Z>
 
-	<V2>
+	<V4>
 		<G1 signal="1">
-			<switch><w3 status="0" /></switch>
+			<switch><w5 status="0" /></switch>
 		</G1>
 		<G2 signal="1">
-			<switch><w3 status="1" /></switch>
+			<switch><w5 status="1" /></switch>
 		</G2>
-		<S01 signal="1">
-			<switch><w1 status="0" /><w2 status="0" /><w3 status="0" /></switch>
-		</S01>
-		<G100 signal="1">
-			<switch><w1 status="0" /><w2 status="1" /><w3 status="1" /></switch>
-		</G100>
-	</V2>
+		<GV1 signal="1">
+			<switch><w6 status="0" /><w5 status="0" /></switch>
+		</GV1>
+		<G800 signal="1">
+			<switch><w5 status="1" /><w810 status="1" /></switch>
+		</G800>
+		<G830 signal="1">
+			<switch><w5 status="0" /><w6 status="0"/><w830 status="1" /></switch>
+		</G830>
+	</V4>
 
 <!--==============================-->
 <!-- Ausfahrt rechts -->
-	<H1>
-		<S03 signal="2">
-			<block><w3/><s03/><s02/><s01/></block>
+
+	<R1>
+		<BO4 signal="2">
+			<block><w5/><gv4/></block>
 			<switch><w3 status="0" /></switch>
-		</S03>
-		<S01 signal="2">
-			<block><w3/><s03/><s02/><s01/></block>
-			<switch><w3 status="0" /></switch>
-		</S01>
-	</H1>
-	<V1R>
-		<S03 signal="1">
-			<switch><w3 status="0" /></switch>
-		</S03>
-	</V1R>
+		</BO4>
+		<G1_DE signal="1">
+			<block><w5/><s1/><w6/></block>
+			<switch><w5 status="0" /><w6 status="0" /><w830 status="0"/></switch>
+		</G1_DE>
+		<G2_DE signal="1">
+			<block><w5/><s1/><w6/></block>
+			<switch><w5 status="0" /><w6 status="0" /><w830 status="0"/></switch>
+		</G2_DE>
+	</R1>
+	<V31>
+		<GV4 signal="1">
+			<switch><w5 status="0" /></switch>
+		</GV4>
+	</V31>
 	
-	<H2>
-		<S03 signal="1">
-			<block><w3/><s03/><s02/><s01/></block>
+	<R2>
+		<BO4 signal="1">
+			<block><w5/><gv4/></block>
 			<switch><w3 status="1" /></switch>
-		</S03>
-		<S01 signal="2">
-			<block><w3/><s03/><s02/><s01/></block>
-			<switch><w3 status="0" /></switch>
-		</S01>
-	</H2>
-	<V2R>
-		<S03 signal="1">
-			<switch><w3 status="1" /></switch>
-		</S03>
-	</V2R>
+		</BO4>
+		<G1_DE signal="1">
+			<block><w5/><s1/><w6/></block>
+			<switch><w5 status="0" /><w6 status="0" /><w830 status="0"/></switch>
+		</G1_DE>
+		<G2_DE signal="1">
+			<block><w5/><s1/><w6/></block>
+			<switch><w5 status="0" /><w6 status="0" /><w830 status="0"/></switch>
+		</G2_DE>
+	</R2>
+	<V32>
+		<GV4 signal="1">
+			<switch><w5 status="1" /></switch>
+		</GV4>
+	</V32>
 	
 <!--==============================-->
-<!-- Strecke -->
-	<BR1>
-		<S01/>
-	</BR1>
+<!-- Bahnhof Dreieichen -->
+<!-- Einfahrt links -->
+	<Zw>
+		<G1_DE>
+		</G1_DE>
 
-	<BR2>
-		<S01/>
-	</BR2>
+		<G2_DE>
+		</G2_DE>
+		
+		<GV4>
+		</GV4>
+		
+		<G1>
+		</G1>
+
+		<G2>
+		</G2>
+	</Zw>
+
+<!-- Einfahrt rechts -->
+	<Ao>
+		<G1_DE>
+		</G1_DE>
+
+		<G2_DE>
+		</G2_DE>
+		
+		<GV4>
+		</GV4>
+		
+		<G1>
+		</G1>
+
+		<G2>
+		</G2>
+	</Ao>
+
+<!-- Ausfahrt rechts -->
+	<H1o>
+		<GV4>
+		</GV4>
+		
+		<G1>
+		</G1>
+
+		<G2>
+		</G2>
+	</H1o>
+
+	<H2o>
+		<GV4>
+		</GV4>
+		
+		<G1>
+		</G1>
+
+		<G2>
+		</G2>
+	</H2o>
+	
+	<Z4n>
+		<GV4>
+		</GV4>
+		
+		<G1>
+		</G1>
+
+		<G2>
+		</G2>
+	</Z4n>
+
+<!-- Ausfahrt links -->
+	<R1w>
+		<GV1>
+		</GV1>
+		
+		<G1>
+		</G1>
+
+		<G2>
+		</G2>
+	</R1w>
+
+	<R2w>
+		<GV1>
+		</GV1>
+		
+		<G1>
+		</G1>
+
+		<G2>
+		</G2>
+	</R2w>
+	
+	<A4n>
+		<GV1>
+		</GV1>
+		
+		<G1>
+		</G1>
+
+		<G2>
+		</G2>
+	</A4n>
 </route>

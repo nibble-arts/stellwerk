@@ -7,7 +7,7 @@ var blocksize = 64;
 var activeColor = "#ffa0a0";
 var selectColor = "#a0ffa0";
 var counter;
-var timeout = 0;
+var timeout = 5000;
 var active;
 
 var syncTime = 5000; // sync desk every 5 seconds
@@ -242,8 +242,20 @@ function createDesk(data,options) {
 					var name = (lv).nodeName;
 					var lightId = $(lv).attr("id");
 					var color = $(lv).text();
+					
+					var status = "";
 
-					$("#"+id).append("<img block_id='"+status_id+"' signal_id='"+signal_id+"' light_id='"+name+lightId+"' src='"+imgPath+color+".png' class='light off px"+px+" py"+py+"'>");
+// set id for block-status or signal
+					switch (name) {
+						case "status":
+							var status = "block_id='"+status_id+"'";
+							break;
+						case "signal":
+							var status = "signal_id='"+signal_id+"'";
+							break;
+					}
+
+					$("#"+id).append("<img "+status+" light_id='"+name+lightId+"' src='"+imgPath+color+".png' class='light off px"+px+" py"+py+"'>");
 				});
 			});
 
@@ -272,6 +284,12 @@ function createDesk(data,options) {
 // activate status/signal 0
 	$("[light_id='signal0']").removeClass("off");
 
+
+//TODO set status
+//	setStatus("w830",1);
+//	setStatus("s03",1);
+
+//	setSignal("V830",1);
 
 // set desk status to ok 
 	setStatusDisplay("deskStatus",2);
@@ -392,24 +410,18 @@ function clearActive() {
 
 
 //============================================================
-// set status
+// set status lights
 function setStatus(id,status) {
-console.log("set "+id+" to status "+status);
-
+	$("[block_id='"+id+"'].light").addClass("off");
+	$("[light_id='status"+status+"'][block_id='"+id+"'].light").removeClass("off");
 }
 
 
 //============================================================
-// set signal
+// set signal lights
 function setSignal(id,status) {
-console.log("set "+id+" to signal "+status);
-}
-
-
-//============================================================
-// set light
-function setLight(id,status) {
-
+	$("[signal_id='"+id+"'].light").addClass("off");
+	$("[light_id='signal"+status+"'][signal_id='"+id+"'].light").removeClass("off");
 }
 
 
