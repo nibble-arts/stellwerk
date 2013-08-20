@@ -53,12 +53,15 @@ $options = array(
 $control = new Control($options);
 $desk = new Desk($options);
 $status = new Status($options);
+$route = new Route($options);
+
 $output = new simpleXmlElement("<apiXml></apiXml>");
 $error = "no error";
 
 if (isset($_GET["cmd"])) $cmd = $_GET["cmd"];
 if (isset($_GET["area"])) $area = $_GET["area"];
 if (isset($_GET["start"])) $start = $_GET["start"];
+if (isset($_GET["target"])) $target = $_GET["target"];
 
 
 //=========================================================
@@ -118,11 +121,19 @@ if (isset($cmd)) {
 
 //=========================================================
 // get switches able to be switched
-//TODO for debug use
 		case "getroute":
 			if (isset($start)) {
-				$output = new simpleXmlElement("<apiXml><data></data></apiXml>");
-				simplexml_insert($output->data,route($start));
+				if (isset($target)) {
+
+// return complete route
+					$output = new simpleXmlElement("<apiXml><data></data></apiXml>");
+					simplexml_insert($output->data,$route->get_route($start,$target));
+				} else {
+
+// return route list
+					$output = new simpleXmlElement("<apiXml><data></data></apiXml>");
+					simplexml_insert($output->data,$route->get_route_list($start));
+				}
 			}
 			else
 				$error = "Api no route start defined";

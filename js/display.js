@@ -7,7 +7,7 @@ var blocksize = 64;
 var activeColor = "#ffa0a0";
 var selectColor = "#a0ffa0";
 var counter;
-var timeout = 5000;
+var timeout = 0;
 var active;
 
 var syncTime = 5000; // sync desk every 5 seconds
@@ -115,9 +115,36 @@ function getSignals() {
 
 
 //============================================================
-// get signal ids from area
+// get route targets from area
 function getRoutes(id) {
 	api({ data: "cmd=getroute&start="+id, type: "block" },selectBlocks);
+}
+
+
+//============================================================
+// get route targets from area
+function getRoute(start,target) {
+	api({ data: "cmd=getroute&start="+start+"&target="+target, type: "block" },selectRoute);
+}
+
+
+//============================================================
+// select route
+
+function selectRoute(data,options) {
+	$.each($(data).find("route"), function() {
+		var id = $(this).attr("id");
+
+// select all blocks of route		
+		$.each($(this).find("block").children(), function() {
+			setStatus((this).nodeName,1);
+		});
+
+// set all signals of route		
+		$.each($(this).find("signal").children(), function() {
+			setSignal((this).nodeName,1);
+		});
+	});
 }
 
 
@@ -332,12 +359,13 @@ function setPushed(element, options) {
 
 // HAT
 			case "hat":
-				getBlocks(id);
+				$(".light[block_id]").addClass("off");
+				$("[light_id='signal1']").addClass("off");
+				$("[light_id='signal0']").removeClass("off");
 				break;
 
 // GT
 			case "gt":
-				console.log("GT");
 				break;
 		
 			default:
@@ -362,10 +390,11 @@ function setActive(id)
 		var type = $("#"+active).attr("select");
 		var type_id = $("#"+active).attr(type+"_id");
 		var start = $("#"+active).attr("start");
-		
 
+
+// get route
 //TODO send action to api
-		alert(type+" action on "+type_id+", start at "+start);
+		var route = getRoute(start,type_id);
 
 		clearActive();
 	}

@@ -32,7 +32,7 @@ Route structure definition
 		<G1>
 			<route>
 				<switch><W6 pos="0"/></switch>
-				<block><w6/><g1/></block>
+				<block><gv1/><w6/><g1/></block>
 				<signal><A signal="1"/></signal>
 			</route>
 		</G1>
@@ -40,7 +40,7 @@ Route structure definition
 		<G2>
 			<route>
 				<switch><W6 pos="1"/><W810 pos="0"/></switch>
-				<block><w6/><s21/><s2/></block>
+				<block><gv1/><w6/><g21/><g2/></block>
 				<signal><A signal="2"/></signal>
 			</route>
 		</G2>
@@ -59,7 +59,7 @@ Route structure definition
 			<route id="A1o=>A2o"/>
 			<route id="A2o=>A3o"/>
 			<route id="A3o=>Ao"/>
-			<route id="A4o=>G1_DE"/>
+			<route id="Ao=>G1_DE"/>
 		</G1_DE>
 
 		<G2_DE signal="1">
@@ -68,7 +68,7 @@ Route structure definition
 			<route id="A1o=>A2o"/>
 			<route id="A2o=>A3o"/>
 			<route id="A3o=>Ao"/>
-			<route id="A4o=>G2_DE"/>
+			<route id="Ao=>G2_DE"/>
 		</G2_DE>
 
 		<GD_O>
@@ -77,7 +77,7 @@ Route structure definition
 			<route id="A1o=>A2o"/>
 			<route id="A2o=>A3o"/>
 			<route id="A3o=>Ao"/>
-			<route id="A4o=>GD_O"/>
+			<route id="Ao=>GD_O"/>
 		</GD_O>
 	</A>
 
@@ -86,6 +86,7 @@ Route structure definition
 		<G1>
 			<route>
 				<switch><W6 pos="0"/></switch>
+				<block lock="0"><w6/><g1/></block>
 				<signal><V1 signal="1"/></signal>
 			</route>
 		</G1>
@@ -93,6 +94,7 @@ Route structure definition
 		<G2 signal="1">
 			<route>
 				<switch><W6 pos="1"/><W810 pos="0"/></switch>
+				<block lock="0"><w6/><g21/><g2/></block>
 				<signal><V1 signal="1"/></signal>
 			</route>
 		</G2>
@@ -100,6 +102,7 @@ Route structure definition
 		<GV4 signal="1">
 			<route>
 				<switch><W6 pos="0"/><W5 pos="0"/></switch>
+				<block lock="0"><w6/><g1/><w5/><gv4/></block>
 				<signal><V1 signal="1"/></signal>
 			</route>
 		</GV4>
@@ -109,18 +112,26 @@ Route structure definition
 <!-- Ausfahrt links -->
 <!-- Fahrstraßen -->
 	<H1>
+		<Z3w>
+			<route>
+				<switch><W6 pos="0" /></switch>
+				<block><w6/><gv1/></block>
+				<signal><H1 signal="1"/></signal>
+			</route>
+		</Z3w>
+
 		<BW4>
 			<route id="H1=>Z3w"/>
 			<route id="Z3w=>Z2w"/>
 			<route id="Z2w=>Z1w"/>
-			<route id="Z2w=>Zw"/>
+			<route id="Z1w=>Zw"/>
 		</BW4>
 
 		<G1_DE>
 			<route id="H1=>Z3w"/>
 			<route id="Z3w=>Z2w"/>
 			<route id="Z2w=>Z1w"/>
-			<route id="Z2w=>Zw"/>
+			<route id="Z1w=>Zw"/>
 			<route id="Zw=>G1_DE"/>
 		</G1_DE>
 
@@ -128,7 +139,7 @@ Route structure definition
 			<route id="H1=>Z3w"/>
 			<route id="Z3w=>Z2w"/>
 			<route id="Z2w=>Z1w"/>
-			<route id="Z2w=>Zw"/>
+			<route id="Z1w=>Zw"/>
 			<route id="Zw=>G2_DE"/>
 		</G2_DE>
 
@@ -136,24 +147,32 @@ Route structure definition
 			<route id="H1=>Z3w"/>
 			<route id="Z3w=>Z2w"/>
 			<route id="Z2w=>Z1w"/>
-			<route id="Z2w=>Zw"/>
+			<route id="Z1w=>Zw"/>
 			<route id="Zw=>GD_W"/>
 		</GD_W>
 	</H1>
 
 	<H2>
+		<Z3w>
+			<route>
+				<switch><w6 pos="1" /></switch>
+				<block><w6/><gv1/><bw4/></block>
+				<signal><H1 signal="2"/></signal>
+			</route>
+		</Z3w>
+
 		<BW4>
 			<route id="H2=>Z3w"/>
 			<route id="Z3w=>Z2w"/>
 			<route id="Z2w=>Z1w"/>
-			<route id="Z2w=>Zw"/>
+			<route id="Z1w=>Zw"/>
 		</BW4>
 
 		<G1_DE>
 			<route id="H2=>Z3w"/>
 			<route id="Z3w=>Z2w"/>
 			<route id="Z2w=>Z1w"/>
-			<route id="Z2w=>Zw"/>
+			<route id="Z1w=>Zw"/>
 			<route id="Zw=>G1_DE"/>
 		</G1_DE>
 
@@ -161,7 +180,7 @@ Route structure definition
 			<route id="H2=>Z3w"/>
 			<route id="Z3w=>Z2w"/>
 			<route id="Z2w=>Z1w"/>
-			<route id="Z2w=>Zw"/>
+			<route id="Z1w=>Zw"/>
 			<route id="Zw=>G2_DE"/>
 		</G2_DE>
 
@@ -169,7 +188,7 @@ Route structure definition
 			<route id="H2=>Z3w"/>
 			<route id="Z3w=>Z2w"/>
 			<route id="Z2w=>Z1w"/>
-			<route id="Z2w=>Zw"/>
+			<route id="Z1w=>Zw"/>
 			<route id="Zw=>GD_W"/>
 		</GD_W>
 	</H2>
@@ -179,6 +198,7 @@ Route structure definition
 		<GV1>
 			<route>
 				<switch><w6 pos="0" /></switch>
+				<block lock="0"><w6/><gv1/></block>
 				<signal signal="1"><V21/></signal>
 			</route>
 		</GV1>
@@ -186,6 +206,7 @@ Route structure definition
 		<G830>
 			<route>
 				<switch><w6 pos="0" /><w830 pos="1"/></switch>
+				<block lock="0"><w6/><gv1/><bw4/><bw3/><g830/></block>
 				<signal signal="1"><V21/></signal>
 			</route>
 		</G830>
@@ -195,6 +216,7 @@ Route structure definition
 		<GV1>
 			<route>
 				<switch><w6 pos="1" /></switch>
+				<block lock="0"><w6/><g21/><gv1/></block>
 				<signal signal="1"><V22/></signal>
 			</route>
 		</GV1>
@@ -202,6 +224,7 @@ Route structure definition
 		<G830>
 			<route>
 				<switch><w6 pos="1" /><w830 pos="1"/></switch>
+				<block lock="0"><w6/><g21/><gv1/><bw4/><bw3/><g830/></block>
 				<signal signal="1"><V22/></signal>
 			</route>
 		</G830>
@@ -214,6 +237,7 @@ Route structure definition
 		<G800>
 			<route>
 				<switch><W810 pos="1"/></switch>
+				<block lock="0"><w810/><g800/></block>
 				<signal signal="1"><V800/></signal>
 			</route>
 		</G800>
@@ -221,6 +245,7 @@ Route structure definition
 		<V22>
 			<route>
 				<switch><W810 pos="0"/></switch>
+				<block lock="0"><g21/></block>
 				<signal signal="1"><V800/></signal>
 			</route>
 		</V22>
@@ -240,12 +265,13 @@ Route structure definition
 		<G2>
 			<route>
 				<switch><W810 pos="1"/></switch>
+				<block lock="0"><w810/><g2/></block>
 				<signal signal="1"><V801/></signal>
 			</route>
 		</G2>
 
 		<GV4>
-			<route id="V801=>V32"/>
+			<route id="V801=>G2"/>
 			<route id="V32=>GV4"/>
 		</GV4>
 	</V801>
@@ -282,7 +308,7 @@ Route structure definition
 		<G1>
 			<route>
 				<switch><W5 pos="0"/></switch>
-				<block><w5/><g1/></block>
+				<block><gv4/><w5/><g1/></block>
 				<signal signal="1"><Z/></signal>
 			</route>
 		</G1>
@@ -290,7 +316,7 @@ Route structure definition
 		<G2>
 			<route>
 				<switch><W5 pos="1"/><W830 pos="0"/></switch>
-				<block><w5/><g2/></block>
+				<block><gv4/><w5/><g2/><g21/></block>
 				<signal signal="2"><Z/></signal>
 			</route>
 		</G2>
@@ -336,6 +362,7 @@ Route structure definition
 		<G1>
 			<route>
 				<switch><W5 pos="0"/></switch>
+				<block lock="0"><w5/><g1/></block>
 				<signal signal="1"><V4/></signal>
 			</route>
 		</G1>
@@ -343,6 +370,7 @@ Route structure definition
 		<G2>
 			<route>
 				<switch><W5 pos="1"/></switch>
+				<block lock="0"><w5/><g2/></block>
 				<signal signal="1"><V4/></signal>
 			</route>
 		</G2>
@@ -370,6 +398,14 @@ Route structure definition
 <!-- Ausfahrt rechts -->
 <!-- Fahrstraßen -->
 	<R1>
+		<A1o>
+			<route>
+				<switch><W5 pos="0"/></switch>
+				<block><w5/><gv4/><bo1/></block>
+				<signal><R1 signal="1"/></signal>
+			</route>
+		</A1o>
+
 		<BO4>
 			<route id="R1=>A1o"/>
 			<route id="A1o=>A2o"/>
@@ -403,6 +439,14 @@ Route structure definition
 	</R1>
 
 	<R2>
+		<A1o>
+			<route>
+				<switch><W5 pos="1"/></switch>
+				<block><w5/><gv4/><bo1/></block>
+				<signal><R2 signal="2"/></signal>
+			</route>
+		</A1o>
+
 		<BO4>
 			<route id="R2=>A1o"/>
 			<route id="A1o=>A2o"/>
@@ -440,6 +484,7 @@ Route structure definition
 		<GV4 signal="1">
 			<route>
 				<switch><W5 pos="0"/></switch>
+				<block lock="0"><w5/><gv4/></block>
 				<signal signal="1"><V31/></signal>
 			</route>
 		</GV4>
@@ -449,6 +494,7 @@ Route structure definition
 		<GV4 signal="1">
 			<route>
 				<switch><W5 pos="1"/></switch>
+				<block lock="0"><w5/><gv4/></block>
 				<signal signal="1"><V32/></signal>
 			</route>
 		</GV4>
@@ -458,25 +504,6 @@ Route structure definition
 <!--==============================-->
 <!-- Strecke Ost -->
 <!-- Fahrtrichtung 1 -->
-	<R1>
-		<A1o>
-			<route>
-				<switch><W5 pos="0"/></switch>
-				<block><w5/><gv4/><bo1/></block>
-				<signal><R1 signal="1"/></signal>
-			</route>
-		</A1o>
-	</R1>
-
-	<R2>
-		<A1o>
-			<route>
-				<switch><W5 pos="1"/></switch>
-				<block><w5/><gv4/><bo1/></block>
-				<signal><R2 signal="2"/></signal>
-			</route>
-		</A1o>
-	</R2>
 
 <!-- Blockstellen -->
 	<A1o>
@@ -569,26 +596,6 @@ Route structure definition
 <!--==============================-->
 <!-- Strecke West -->
 <!-- Fahrtrichtung 1 -->
-	<H1>
-		<Z3w>
-			<route>
-				<switch><W6 pos="0" /></switch>
-				<block><w6/><gv1/></block>
-				<signal><H1 signal="1"/></signal>
-			</route>
-		</Z3w>
-	</H1>
-
-	<H2>
-		<Z3w>
-			<route>
-				<switch><w6 pos="1" /></switch>
-				<block><w6/><gv1/><bw4/></block>
-				<signal><H1 signal="2"/></signal>
-			</route>
-		</Z3w>
-	</H2>
-
 <!-- Blockstellen -->
 	<Z3w>
 		<Z2w>
@@ -686,6 +693,7 @@ Route structure definition
 		<G1_DE>
 			<route>
 				<switch><W7w pos="0"/></switch>
+				<block><w7w/><de_g1/></block>
 				<signal signal="1"><Zw/></signal>
 			</route>
 		</G1_DE>
@@ -693,6 +701,7 @@ Route structure definition
 		<G2_DE>
 			<route>
 				<switch><W7w pos="1"/><W7 pos="1"/></switch>
+				<block><w7w/><w7/><de_g2/></block>
 				<signal signal="2"><Zw/></signal>
 			</route>
 		</G2_DE>
@@ -700,6 +709,7 @@ Route structure definition
 		<GD_W>
 			<route>
 				<switch><W7w pos="1"/><W7 pos="0"/></switch>
+				<block><w7w/><w7/><gde_w/></block>
 				<signal signal="2"><Zw/></signal>
 			</route>
 		</GD_W>
@@ -737,6 +747,7 @@ Route structure definition
 		<G1_DE>
 			<route>
 				<switch><W4o pos="0"/></switch>
+				<block lock="0"><w4o/><de_g1/></block>
 				<signal signal="1"><Ao/></signal>
 			</route>
 		</G1_DE>
@@ -744,6 +755,7 @@ Route structure definition
 		<G2_DE>
 			<route>
 				<switch><W4o pos="1"/><W4 pos="1"/></switch>
+				<block lock="0"><w4o/><w4/><de_g2/></block>
 				<signal signal="2"><Ao/></signal>
 			</route>
 		</G2_DE>
@@ -751,6 +763,7 @@ Route structure definition
 		<GD_O>
 			<route>
 				<switch><W4o pos="1"/><W4 pos="0"/></switch>
+				<block lock="0"><w4o/><w4/><gde_o/></block>
 				<signal signal="2"><Ao/></signal>
 			</route>
 		</GD_O>

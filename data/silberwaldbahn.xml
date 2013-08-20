@@ -14,7 +14,7 @@ Control desk layout definition
 			<a1 status_id="g800"><B_left/></a1>
 			<a0 status_id="g800" block_id="G800"><B_010-B-010/><text py="1" class="strong">Gl. 800</text></a0>
 			<a2 status_id="g800" signal_id="V801"><S_0-vs/></a2>
-			<a7 status_id="g800"><B_010-001/></a7>
+			<a7 status_id="w810"><B_010-001/></a7>
 			<a8><field>0010.png</field></a8>
 			<a9/>
 			<a10/>
@@ -35,7 +35,8 @@ Control desk layout definition
 			<c03/>
 			<c04><field>0001.png</field></c04>
 
-			<b20 status_id="g21"><B_001-010/></b20>
+			<b20 status_id="w6" pos="1"><B_001-010/></b20>
+
 			<b21 status_id="g21" signal_id="H2"><S_hs-0/></b21>
 			<b22 status_id="g21" signal_id="V22"><S_vs-0/><field>0100.png</field></b22>
 			<b23 status_id="w810" switch_id="W810"><W_110-010/></b23>
@@ -45,7 +46,8 @@ Control desk layout definition
 
 			<b26 status_id="g2" signal_id="V32"><S_0-vs/></b26>
 			<b27 status_id="g2" signal_id="R2"><S_0-hs/></b27>
-			<b28 status_id="g2"><B_010-001/></b28>
+
+			<b28 status_id="w5" pos="1"><B_010-001/></b28>
 
 			<b30><field>0010.png</field></b30>
 
@@ -62,8 +64,7 @@ Control desk layout definition
 			<b02 status_id="gv1" signal_id="V1"><S_0-vs/></b02>
 
 			<b10 status_id="w6" switch_id="W6"><W_010-110/></b10>
-
-			<c10 status_id="g1"><B_010-010/><field>1000.png</field></c10>
+			<c10 status_id="w6" pos="0"><B_010-010/><field>1000.png</field></c10>
 
 			<c20 status_id="g1" signal_id="H1"><S_hs-0/></c20>
 			<c21 status_id="g1" signal_id="V21"><S_vs-0/></c21>
@@ -72,8 +73,8 @@ Control desk layout definition
 			<c24 status_id="g1"><B_010-010></B_010-010></c24>
 			<c25 status_id="g1" signal_id="V31"><S_0-vs/></c25>
 			<c26 status_id="g1" signal_id="R1"><S_0-hs/></c26>
-			<c27 status_id="g1"><B_010-010/><field>0100.png</field></c27>
 
+			<c27 status_id="w5" pos="0"><B_010-010/><field>0100.png</field></c27>
 			<c30 status_id="w5" switch_id="W5"><W_110-010/></c30>
 			
 			<c41 status_id="gv4" signal_id="V4"><S_vs-0/></c41>
@@ -91,12 +92,12 @@ Strecke West
 			<b00 status_id="bw1"><B_left><text py="3" class="small">Bl.W 1</text><text py="1" class="strong">Dreieich.</text></B_left></b00>
 			<b11 status_id="bw1" signal_id="Z1w"><S_hs-0/></b11>
 
-			<b20 status_id="bw2" signal_id="A1w"><S_0-hs/></b20>
+			<b20 status_id="bw1" signal_id="A1w"><S_0-hs/></b20>
 			<b21 status_id="bw2"><B_010-010/><text py="3" class="small">Bl.W 2</text></b21>
 			<b22 status_id="bw2" signal_id="Z2w"><S_hs-0/></b22>
 
-			<b30 status_id="bw3" signal_id="A2w"><S_0-hs/></b30>
-			<b31 status_id="bw3"><B_010-010/><text py="3" class="small">Bl.W 3</text><field>0001.png</field></b31>
+			<b30 status_id="bw2" signal_id="A2w"><S_0-hs/></b30>
+			<b31 status_id="w830" pos="0"><B_010-010/><text py="3" class="small">Bl.W 3</text><field>0001.png</field></b31>
 			<b32 status_id="w830" switch_id="W830"><W_011-010/></b32>
 			<b33 status_id="bw3" signal_id="Z3w"><S_hs-0/></b33>
 
@@ -112,7 +113,7 @@ Strecke West
 			<c10 status_id="g830"><B_left/></c10>
 			<c11 status_id="g830" block_id="G830"><B_010-B-010/><text py="3" class="strong">Gl. 830</text></c11>
 			<c12 status_id="g830" signal_id="V830"><S_0-vs/></c12>
-			<c13 status_id="w830"><B_010-100/></c13>
+			<c13 status_id="w830" pos="1"><B_010-100/></c13>
 
 			<c20><field>1000.png</field></c20>
 			<c21/>
@@ -174,8 +175,8 @@ Strecke Ost
 			<b02/>
 			<b04><field>0001.png</field></b04>
 
-			<b10 status_id="de_g2" switch_id="W7"><W_001-110/></b10>
-			<b12 status_id="de_g2"><B_010-010/><field>1000.png</field></b12>
+			<b10 status_id="w7" switch_id="W7"><W_001-110/></b10>
+			<b12 status_id="w7"><B_010-010/><field>1000.png</field></b12>
 			<b13 status_id="de_g2" signal_id="R2w"><S_hs-0/></b13>
 
 			<b20 status_id="de_g2"><B_010-010/></b20>
@@ -185,8 +186,8 @@ Strecke Ost
 			<b24 status_id="de_g2"><B_010-010/></b24>
 
 			<b30 status_id="de_g2" signal_id="H2o"><S_0-hs/></b30>
-			<b31 status_id="de_g2"><B_010-010/><field>0100.png</field></b31>
-			<b32 status_id="de_g2" switch_id="W4"><W_110-001/></b32>
+			<b31 status_id="w4"><B_010-010/><field>0100.png</field></b31>
+			<b32 status_id="w4" switch_id="W4"><W_110-001/></b32>
 
 			<b40><field>0010.png</field></b40>
 			<b41/>
@@ -196,28 +197,28 @@ Strecke Ost
 		
 		<c>
 			<c00 status_id="bw4"><B_left><text py="1" class="strong">Str. West</text></B_left></c00>
-			<c01 status_id="gv1" block_id="BW4"><B_010-B-010/></c01>
+			<c01 status_id="bw4" block_id="BW4"><B_010-B-010/></c01>
 			<c03 status_id="bw4" signal_id="Zw"><S_0-hs/></c03>
 
 			<c10 status_id="w7w" switch_id="W7w"><W_010-110/></c10>
-			<c11 status_id="g1"><B_010-010/><field>1000.png</field></c11>
+			<c11 status_id="w7w" pos="0"><B_010-010/><field>1000.png</field></c11>
 
-			<c20 status_id="g1" signal_id="R1w"><S_hs-0/></c20>
-			<c21 status_id="g1"><B_010-010/></c21>
-			<c22 status_id="g1"><B_010-010/></c22>
-			<c23 status_id="g1"><B_010-010/></c23>
+			<c20 status_id="de_g1" signal_id="R1w"><S_hs-0/></c20>
+			<c21 status_id="de_g1"><B_010-010/></c21>
+			<c22 status_id="de_g1"><B_010-010/></c22>
+			<c23 status_id="de_g1"><B_010-010/></c23>
 
-			<c24 status_id="g1" block_id="G1_DE"><B_010-B-010><text py="1" class="strong">Gl. 1</text></B_010-B-010></c24>
-			<c25 status_id="g1"><B_010-010/></c25>
-			<c26 status_id="g1"><B_010-010/></c26>
-			<c27 status_id="g1"><B_010-010/></c27>
-			<c28 status_id="g1" signal_id="H1o"><S_0-hs/></c28>
+			<c24 status_id="de_g1" block_id="G1_DE"><B_010-B-010><text py="1" class="strong">Gl. 1</text></B_010-B-010></c24>
+			<c25 status_id="de_g1"><B_010-010/></c25>
+			<c26 status_id="de_g1"><B_010-010/></c26>
+			<c27 status_id="de_g1"><B_010-010/></c27>
+			<c28 status_id="de_g1" signal_id="H1o"><S_0-hs/></c28>
 
-			<c29 status_id="g1"><B_010-010/><field>0100.png</field></c29>
+			<c29 status_id="w4o" pos="0"><B_010-010/><field>0100.png</field></c29>
 			<c30 status_id="w4o" switch_id="W4o"><W_110-010/></c30>
 			
 			<c40 status_id="bo4" signal_id="Ao"><S_hs-0/></c40>
-			<c42 status_id="gv4" block_id="BO4"><B_010-B-010/></c42>
+			<c42 status_id="bo4" block_id="BO4"><B_010-B-010/></c42>
 			<c43 status_id="bo4"><B_right><text py="1" class="strong">Str. Ost</text></B_right></c43>
 		</c>
 	</area>

@@ -35,8 +35,16 @@ Difinitions:
 	</B_010-010>
 	
 	<B_010-B-010>
-		<field>010-010.png</field>
+		<field>010-050-010.png</field>
 		<button type="gt" color="black" px="2" py="2"></button>
+		<light px="1" py="2">
+			<status id="1">yellow</status>
+			<status id="2">red</status>
+		</light>
+		<light px="3" py="2">
+			<status id="1">yellow</status>
+			<status id="2">red</status>
+		</light>
 	</B_010-B-010>
 	
 	<B_left>
@@ -125,11 +133,11 @@ Difinitions:
 -->
 
 	<S_vs-0>
-		<field>010-010-010.png</field>
+		<field>010-040-010.png</field>
 		<field>vs-0.png</field>
 		<text py="3" class="small">$signal_id</text>
 		<button type="st" color="blue" px="2" py="2"></button>
-		<light px="1" py="2">
+		<light px="3" py="2">
 			<status id="1">yellow</status>
 			<status id="2">red</status>
 		</light>
@@ -143,11 +151,11 @@ Difinitions:
 	</S_vs-0>
 	
 	<S_0-vs>
-		<field>010-040-010.png</field>
+		<field>010-010-010.png</field>
 		<field>0-vs.png</field>
 		<text py="1" class="small">$signal_id</text>
 		<button type="st" color="blue" px="2" py="2"></button>
-		<light  px="3" py="2">
+		<light  px="1" py="2">
 			<status id="1">yellow</status>
 			<status id="2">red</status>
 		</light>
@@ -161,11 +169,11 @@ Difinitions:
 	</S_0-vs>
 	
 	<S_hs-0>
-		<field>010-010-010.png</field>
+		<field>010-040-010.png</field>
 		<field>hs-0.png</field>
 		<text py="3" class="small">$signal_id</text>
 		<button type="st" color="black" px="2" py="2"></button>
-		<light px="1" py="2">
+		<light px="3" py="2">
 			<status id="1">yellow</status>
 			<status id="2">red</status>
 		</light>
@@ -178,11 +186,11 @@ Difinitions:
 	</S_hs-0>
 	
 	<S_0-hs>
-		<field>010-040-010.png</field>
+		<field>010-010-010.png</field>
 		<field>0-hs.png</field>
 		<text py="1" class="small">$signal_id</text>
 		<button type="st" color="black" px="2" py="2"></button>
-		<light px="3" py="2">
+		<light px="1" py="2">
 			<status id="1">yellow</status>
 			<status id="2">red</status>
 		</light>

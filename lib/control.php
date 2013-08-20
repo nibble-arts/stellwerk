@@ -28,7 +28,6 @@
 
 class Control {
 	private $control;
-	private $route;
 	private $desk;
 	
 //==============================================================================
@@ -39,18 +38,6 @@ class Control {
 		$xml = load_xml($options["path"],$options["control"]);
 		if (!$xml) die ("*** no structure file found");
 		else $this->control = $xml;
-
-// load route structure
-		$xml = load_xml($options["path"],$options["route"]);
-		if (!$xml) die ("*** no route file found");
-		else $this->route = $xml;
-	}
-
-
-//==============================================================================
-// get list of possible routes
-	function get_route($start) {
-		return $this->route->$start;
 	}
 
 
