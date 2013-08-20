@@ -23,7 +23,7 @@
 
 // load and create the desk data
 
-include_once("block.php");
+include_once("lib/block.php");
 
 
 class Desk {

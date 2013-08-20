@@ -5,327 +5,937 @@ Route structure definition
 
 	route
 		In the route section the possible routes for the trains are defined.
-			
+
+
+	<start signal>
+		<route>
+			[<switch><sw_1 pos="0/1"/><sw_2 pos="0/1"/> ... </switch>] == optional switch positions
+			<block><block_1/><block_2/> ... </block> == blocks to be free
+			<signal signal="1/2"><signal_id/></signal> == signals to be set
+		</route>
+
+		<route id="start=>end"> == more routes to be part of the overall route
+			....										 id == already defined start to end route 
+		</route>									 routes are set and can be used in order of definition
+
+			...
+			...
+	</start signal>
 -->
 
 <route>
 <!--==============================-->
 <!-- Bahnhof Gartenhütte -->
 <!-- Einfahrt links -->
+<!-- Fahrstraßen -->
 	<A>
-		<G1 signal="1">
-			<block><gv1/><w1/><g1/></block>
-			<switch><w6 status="0"/></switch>
+		<G1>
+			<route>
+				<switch><W6 pos="0"/></switch>
+				<block><w6/><g1/></block>
+				<signal><A signal="1"/></signal>
+			</route>
 		</G1>
-		<G2 signal="2">
-			<block><gv1/><w1/><s21/><s2/></block>
-			<switch><w6 status="1"/></switch>
+
+		<G2>
+			<route>
+				<switch><W6 pos="1"/><W810 pos="0"/></switch>
+				<block><w6/><s21/><s2/></block>
+				<signal><A signal="2"/></signal>
+			</route>
 		</G2>
-		<BO4 signal="1">
-			<block><gv1/><w6/><g1/><w5/><gv4/></block>
-			<switch><w6 status="0"/><w5 status="0" /></switch>
+
+		<BO4>
+			<route id="A=>G1"/>
+			<route id="R1=>A1o"/>
+			<route id="A1o=>A2o"/>
+			<route id="A2o=>A3o"/>
+			<route id="A3o=>Ao"/>
 		</BO4>
 
-		<G1_DE signal="1">
-			<block><w5/><s1/><w6/></block>
-			<switch><w5 status="0" /><w6 status="0" /><w830 status="0"/></switch>
+		<G1_DE>
+			<route id="A=>G1"/>
+			<route id="R1=>A1o"/>
+			<route id="A1o=>A2o"/>
+			<route id="A2o=>A3o"/>
+			<route id="A3o=>Ao"/>
+			<route id="A4o=>G1_DE"/>
 		</G1_DE>
+
 		<G2_DE signal="1">
-			<block><w5/><s1/><w6/></block>
-			<switch><w5 status="0" /><w6 status="0" /><w830 status="0"/></switch>
+			<route id="A=>G1"/>
+			<route id="R1=>A1o"/>
+			<route id="A1o=>A2o"/>
+			<route id="A2o=>A3o"/>
+			<route id="A3o=>Ao"/>
+			<route id="A4o=>G2_DE"/>
 		</G2_DE>
+
+		<GD_O>
+			<route id="A=>G1"/>
+			<route id="R1=>A1o"/>
+			<route id="A1o=>A2o"/>
+			<route id="A2o=>A3o"/>
+			<route id="A3o=>Ao"/>
+			<route id="A4o=>GD_O"/>
+		</GD_O>
 	</A>
 
+<!-- Verschubstraßen -->
 	<V1>
-		<G1 signal="1">
-			<switch><w6 status="0"/></switch>
+		<G1>
+			<route>
+				<switch><W6 pos="0"/></switch>
+				<signal><V1 signal="1"/></signal>
+			</route>
 		</G1>
+
 		<G2 signal="1">
-			<switch><w6 status="1" /><w810 status="0" /></switch>
+			<route>
+				<switch><W6 pos="1"/><W810 pos="0"/></switch>
+				<signal><V1 signal="1"/></signal>
+			</route>
 		</G2>
+
 		<GV4 signal="1">
-			<switch><w6 status="0" /><w5 status="0" /></switch>
+			<route>
+				<switch><W6 pos="0"/><W5 pos="0"/></switch>
+				<signal><V1 signal="1"/></signal>
+			</route>
 		</GV4>
 	</V1>
 
 <!--==============================-->
 <!-- Ausfahrt links -->
+<!-- Fahrstraßen -->
 	<H1>
-		<BW4 signal="1">
-			<block><w6/><gv1/></block>
-			<switch><w6 status="0" /></switch>
+		<BW4>
+			<route id="H1=>Z3w"/>
+			<route id="Z3w=>Z2w"/>
+			<route id="Z2w=>Z1w"/>
+			<route id="Z2w=>Zw"/>
 		</BW4>
-		<G1_DE signal="1">
-			<block><w5/><s1/><w6/></block>
-			<switch><w5 status="0" /><w6 status="0" /><w830 status="0"/></switch>
+
+		<G1_DE>
+			<route id="H1=>Z3w"/>
+			<route id="Z3w=>Z2w"/>
+			<route id="Z2w=>Z1w"/>
+			<route id="Z2w=>Zw"/>
+			<route id="Zw=>G1_DE"/>
 		</G1_DE>
-		<G2_DE signal="1">
-			<block><w5/><s1/><w6/></block>
-			<switch><w5 status="0" /><w6 status="0" /><w830 status="0"/></switch>
+
+		<G2_DE>
+			<route id="H1=>Z3w"/>
+			<route id="Z3w=>Z2w"/>
+			<route id="Z2w=>Z1w"/>
+			<route id="Z2w=>Zw"/>
+			<route id="Zw=>G2_DE"/>
 		</G2_DE>
+
+		<GD_W>
+			<route id="H1=>Z3w"/>
+			<route id="Z3w=>Z2w"/>
+			<route id="Z2w=>Z1w"/>
+			<route id="Z2w=>Zw"/>
+			<route id="Zw=>GD_W"/>
+		</GD_W>
 	</H1>
 
+	<H2>
+		<BW4>
+			<route id="H2=>Z3w"/>
+			<route id="Z3w=>Z2w"/>
+			<route id="Z2w=>Z1w"/>
+			<route id="Z2w=>Zw"/>
+		</BW4>
+
+		<G1_DE>
+			<route id="H2=>Z3w"/>
+			<route id="Z3w=>Z2w"/>
+			<route id="Z2w=>Z1w"/>
+			<route id="Z2w=>Zw"/>
+			<route id="Zw=>G1_DE"/>
+		</G1_DE>
+
+		<G2_DE>
+			<route id="H2=>Z3w"/>
+			<route id="Z3w=>Z2w"/>
+			<route id="Z2w=>Z1w"/>
+			<route id="Z2w=>Zw"/>
+			<route id="Zw=>G2_DE"/>
+		</G2_DE>
+
+		<GD_W>
+			<route id="H2=>Z3w"/>
+			<route id="Z3w=>Z2w"/>
+			<route id="Z2w=>Z1w"/>
+			<route id="Z2w=>Zw"/>
+			<route id="Zw=>GD_W"/>
+		</GD_W>
+	</H2>
+
+<!-- Verschubstraßen -->
 	<V21>
-		<GV1 signal="1">
-			<switch><w6 status="0" /></switch>
+		<GV1>
+			<route>
+				<switch><w6 pos="0" /></switch>
+				<signal signal="1"><V21/></signal>
+			</route>
 		</GV1>
+
 		<G830>
-			<switch><w6 status="0" /><w830 status="1"/></switch>
+			<route>
+				<switch><w6 pos="0" /><w830 pos="1"/></switch>
+				<signal signal="1"><V21/></signal>
+			</route>
 		</G830>
 	</V21>
 	
-	<H2>
-		<BW4 signal="2">
-			<block><w6/><gv1/></block>
-			<switch><w6 status="1" /><w5 status="0" /></switch>
-		</BW4>
-		<G1_DE signal="1">
-			<block><w5/><s1/><w6/></block>
-			<switch><w5 status="0" /><w6 status="0" /><w830 status="0"/></switch>
-		</G1_DE>
-		<G2_DE signal="1">
-			<block><w5/><s1/><w6/></block>
-			<switch><w5 status="0" /><w6 status="0" /><w830 status="0"/></switch>
-		</G2_DE>
-	</H2>
-
 	<V22>
-		<GV1 signal="1">
-			<switch><w6 status="1" /><w5 status="0" /></switch>
+		<GV1>
+			<route>
+				<switch><w6 pos="1" /></switch>
+				<signal signal="1"><V22/></signal>
+			</route>
 		</GV1>
+
 		<G830>
-			<switch><w6 status="1" /><w830 status="1"/></switch>
+			<route>
+				<switch><w6 pos="1" /><w830 pos="1"/></switch>
+				<signal signal="1"><V22/></signal>
+			</route>
 		</G830>
 	</V22>
-		
+
+
 <!--==============================-->
 <!-- Abstellgruppe -->
 	<V800>
-		<GV1>
-			<switch><w6 status="1"/><w5 status="0"/></switch>
-		</GV1>
 		<G800>
-			<switch><w5 status="1"/></switch>
+			<route>
+				<switch><W810 pos="1"/></switch>
+				<signal signal="1"><V800/></signal>
+			</route>
 		</G800>
+
+		<V22>
+			<route>
+				<switch><W810 pos="0"/></switch>
+				<signal signal="1"><V800/></signal>
+			</route>
+		</V22>
+
+		<GV1>
+			<route id="V800=>V22"/>
+			<route id="V22=>GV1"/>
+		</GV1>
+
 		<G830>
+			<route id="V800=>V22"/>
+			<route id="V22=>G830"/>
 		</G830>
 	</V800>
 
 	<V801>
 		<G2>
-			<switch><w810 status="1"/></switch>
+			<route>
+				<switch><W810 pos="1"/></switch>
+				<signal signal="1"><V801/></signal>
+			</route>
 		</G2>
+
 		<GV4>
-			<switch><w810 status="1"/><w5 status="1"/></switch>
+			<route id="V801=>V32"/>
+			<route id="V32=>GV4"/>
 		</GV4>
 	</V801>
 	
 	<V830>
 		<GV1>
+			<route>
+				<switch><W830 pos="1"/></switch>
+				<signal signal="1"><V830/></signal>
+			</route>
 		</GV1>
 		
 		<G1>
+			<route id="W830=>GV1"/>
+			<route id="GV1=>G1"/>
 		</G1>
 		
 		<G2>
+			<route id="W830=>GV1"/>
+			<route id="GV1=>G2"/>
 		</G2>
 		
 		<GV4>
+			<route id="W830=>GV1"/>
+			<route id="GV1=>G1"/>
+			<route id="R1=>GV4"/>
 		</GV4>
 	</V830>
 
 <!--==============================-->
 <!-- Einfahrt Rechts -->
-
+<!-- Fahrstraßen -->
 	<Z>
-		<G1 signal="1">
-			<block><w5/><g1/></block>
-			<switch><w5 status="0" /></switch>
+		<G1>
+			<route>
+				<switch><W5 pos="0"/></switch>
+				<block><w5/><g1/></block>
+				<signal signal="1"><Z/></signal>
+			</route>
 		</G1>
-		<G2 signal="2">
-			<block><w5/><s2/><s21/></block>
-			<switch><w5 status="1" /><w810 status="0"/></switch>
+
+		<G2>
+			<route>
+				<switch><W5 pos="1"/><W830 pos="0"/></switch>
+				<block><w5/><g2/></block>
+				<signal signal="2"><Z/></signal>
+			</route>
 		</G2>
 
-		<BW4 signal="1">
-			<block><w5/><s1/><w6/></block>
-			<switch><w5 status="0" /><w6 status="0" /><w830 status="0"/></switch>
+		<BW4>
+			<route id="Z=>G2"/>
+			<route id="H2=>Z3w"/>
+			<route id="Z3w=>Z2w"/>
+			<route id="Z2w=>Z1w"/>
+			<route id="Z1w=>Zw"/>
 		</BW4>
 
-		<G1_DE signal="1">
-			<block><w5/><s1/><w6/></block>
-			<switch><w5 status="0" /><w6 status="0" /><w830 status="0"/></switch>
+		<G1_DE>
+			<route id="Z=>G2"/>
+			<route id="H2=>Z3w"/>
+			<route id="Z3w=>Z2w"/>
+			<route id="Z2w=>Z1w"/>
+			<route id="Z1w=>Zw"/>
+			<route id="Zw=>G1_DE"/>
 		</G1_DE>
-		<G2_DE signal="1">
-			<block><w5/><s1/><w6/></block>
-			<switch><w5 status="0" /><w6 status="0" /><w830 status="0"/></switch>
+
+		<G2_DE>
+			<route id="Z=>G2"/>
+			<route id="H2=>Z3w"/>
+			<route id="Z3w=>Z2w"/>
+			<route id="Z2w=>Z1w"/>
+			<route id="Z1w=>Zw"/>
+			<route id="Zw=>G2_DE"/>
 		</G2_DE>
+
+		<GD_W>
+			<route id="Z=>G2"/>
+			<route id="H2=>Z3w"/>
+			<route id="Z3w=>Z2w"/>
+			<route id="Z2w=>Z1w"/>
+			<route id="Z1w=>Zw"/>
+			<route id="Zw=>GD_W"/>
+		</GD_W>
 	</Z>
 
+<!-- Verschubstraßen -->
 	<V4>
-		<G1 signal="1">
-			<switch><w5 status="0" /></switch>
+		<G1>
+			<route>
+				<switch><W5 pos="0"/></switch>
+				<signal signal="1"><V4/></signal>
+			</route>
 		</G1>
-		<G2 signal="1">
-			<switch><w5 status="1" /></switch>
+
+		<G2>
+			<route>
+				<switch><W5 pos="1"/></switch>
+				<signal signal="1"><V4/></signal>
+			</route>
 		</G2>
-		<GV1 signal="1">
-			<switch><w6 status="0" /><w5 status="0" /></switch>
+
+		<GV1>
+			<route id="V4=>G2"/>
+			<route id="V800=>V22"/>
+			<route id="V22=>GV1"/>
 		</GV1>
+
 		<G800 signal="1">
-			<switch><w5 status="1" /><w810 status="1" /></switch>
+			<route id="V4=>G2"/>
+			<route id="V800=>G800"/>
 		</G800>
+
 		<G830 signal="1">
-			<switch><w5 status="0" /><w6 status="0"/><w830 status="1" /></switch>
+			<route id="V4=>G2"/>
+			<route id="V800=>V22"/>
+			<route id="V22=>G830"/>
 		</G830>
 	</V4>
 
+
 <!--==============================-->
 <!-- Ausfahrt rechts -->
-
+<!-- Fahrstraßen -->
 	<R1>
-		<BO4 signal="2">
-			<block><w5/><gv4/></block>
-			<switch><w3 status="0" /></switch>
+		<BO4>
+			<route id="R1=>A1o"/>
+			<route id="A1o=>A2o"/>
+			<route id="A2o=>A3o"/>
+			<route id="A3o=>Ao"/>
 		</BO4>
-		<G1_DE signal="1">
-			<block><w5/><s1/><w6/></block>
-			<switch><w5 status="0" /><w6 status="0" /><w830 status="0"/></switch>
+
+		<G1_DE>
+			<route id="R1=>A1o"/>
+			<route id="A1o=>A2o"/>
+			<route id="A2o=>A3o"/>
+			<route id="A3o=>Ao"/>
+			<route id="Ao=>G1_DE"/>
 		</G1_DE>
-		<G2_DE signal="1">
-			<block><w5/><s1/><w6/></block>
-			<switch><w5 status="0" /><w6 status="0" /><w830 status="0"/></switch>
+
+		<G2_DE>
+			<route id="R1=>A1o"/>
+			<route id="A1o=>A2o"/>
+			<route id="A2o=>A3o"/>
+			<route id="A3o=>Ao"/>
+			<route id="Ao=>G2_DE"/>
 		</G2_DE>
+
+		<GD_O>
+			<route id="R1=>A1o"/>
+			<route id="A1o=>A2o"/>
+			<route id="A2o=>A3o"/>
+			<route id="A3o=>Ao"/>
+			<route id="Ao=>GD_O"/>
+		</GD_O>
 	</R1>
+
+	<R2>
+		<BO4>
+			<route id="R2=>A1o"/>
+			<route id="A1o=>A2o"/>
+			<route id="A2o=>A3o"/>
+			<route id="A3o=>Ao"/>
+		</BO4>
+
+		<G1_DE>
+			<route id="R2=>A1o"/>
+			<route id="A1o=>A2o"/>
+			<route id="A2o=>A3o"/>
+			<route id="A3o=>Ao"/>
+			<route id="Ao=>G1_DE"/>
+		</G1_DE>
+
+		<G2_DE>
+			<route id="R2=>A1o"/>
+			<route id="A1o=>A2o"/>
+			<route id="A2o=>A3o"/>
+			<route id="A3o=>Ao"/>
+			<route id="Ao=>G2_DE"/>
+		</G2_DE>
+
+		<GD_O>
+			<route id="R2=>A1o"/>
+			<route id="A1o=>A2o"/>
+			<route id="A2o=>A3o"/>
+			<route id="A3o=>Ao"/>
+			<route id="Ao=>GD_O"/>
+		</GD_O>
+	</R2>
+
+<!-- Verschubstraßen -->
 	<V31>
 		<GV4 signal="1">
-			<switch><w5 status="0" /></switch>
+			<route>
+				<switch><W5 pos="0"/></switch>
+				<signal signal="1"><V31/></signal>
+			</route>
 		</GV4>
 	</V31>
 	
-	<R2>
-		<BO4 signal="1">
-			<block><w5/><gv4/></block>
-			<switch><w3 status="1" /></switch>
-		</BO4>
-		<G1_DE signal="1">
-			<block><w5/><s1/><w6/></block>
-			<switch><w5 status="0" /><w6 status="0" /><w830 status="0"/></switch>
-		</G1_DE>
-		<G2_DE signal="1">
-			<block><w5/><s1/><w6/></block>
-			<switch><w5 status="0" /><w6 status="0" /><w830 status="0"/></switch>
-		</G2_DE>
-	</R2>
 	<V32>
 		<GV4 signal="1">
-			<switch><w5 status="1" /></switch>
+			<route>
+				<switch><W5 pos="1"/></switch>
+				<signal signal="1"><V32/></signal>
+			</route>
 		</GV4>
 	</V32>
-	
+
+
+<!--==============================-->
+<!-- Strecke Ost -->
+<!-- Fahrtrichtung 1 -->
+	<R1>
+		<A1o>
+			<route>
+				<switch><W5 pos="0"/></switch>
+				<block><w5/><gv4/><bo1/></block>
+				<signal><R1 signal="1"/></signal>
+			</route>
+		</A1o>
+	</R1>
+
+	<R2>
+		<A1o>
+			<route>
+				<switch><W5 pos="1"/></switch>
+				<block><w5/><gv4/><bo1/></block>
+				<signal><R2 signal="2"/></signal>
+			</route>
+		</A1o>
+	</R2>
+
+<!-- Blockstellen -->
+	<A1o>
+		<A2o>
+			<route>
+				<block><bo2/></block>
+				<signal><A1o signal="1"/></signal>
+			</route>
+		</A2o>
+	</A1o>
+
+	<A2o>
+		<A3o>
+			<route>
+				<block><bo3/></block>
+				<signal><A2o signal="1"/></signal>
+			</route>
+		</A3o>
+	</A2o>
+
+	<A3o>
+		<Ao>
+			<route>
+				<block><bo4/></block>
+				<signal><A3o signal="1"/></signal>
+			</route>
+		</Ao>
+	</A3o>
+
+<!-- Fahrtrichtung 2 -->
+	<H1o>
+		<Z3o>
+			<route>
+				<switch><W4o pos="0"/></switch>
+				<block><w4o/><bo4/></block>
+				<signal><H1o signal="1"/></signal>
+			</route>
+		</Z3o>
+	</H1o>
+
+	<H2o>
+		<Z3o>
+			<route>
+				<switch><W4o pos="1"/><W4 pos="1"/></switch>
+				<block><w4o/><bo4/></block>
+				<signal><H2o signal="2"/></signal>
+			</route>
+		</Z3o>
+	</H2o>
+
+	<H3o>
+		<Z3o>
+			<route>
+				<switch><W4o pos="1"/><W4 pos="0"/></switch>
+				<block><w4o/><bo4/></block>
+				<signal><H3o signal="1"/></signal>
+			</route>
+		</Z3o>
+	</H3o>
+
+<!-- Blockstellen -->
+	<Z3o>
+		<Z2o>
+			<route>
+				<block><bo3/></block>
+				<signal><Z3o signal="1"/></signal>
+			</route>
+		</Z2o>
+	</Z3o>
+
+	<Z2o>
+		<Z1o>
+			<route>
+				<block><bo2/></block>
+				<signal><Z2o signal="1"/></signal>
+			</route>
+		</Z1o>
+	</Z2o>
+
+	<Z1o>
+		<Z>
+			<route>
+				<block><bo1/></block>
+				<signal><Z1o signal="1"/></signal>
+			</route>
+		</Z>
+	</Z1o>
+
+
+<!--==============================-->
+<!-- Strecke West -->
+<!-- Fahrtrichtung 1 -->
+	<H1>
+		<Z3w>
+			<route>
+				<switch><W6 pos="0" /></switch>
+				<block><w6/><gv1/></block>
+				<signal><H1 signal="1"/></signal>
+			</route>
+		</Z3w>
+	</H1>
+
+	<H2>
+		<Z3w>
+			<route>
+				<switch><w6 pos="1" /></switch>
+				<block><w6/><gv1/><bw4/></block>
+				<signal><H1 signal="2"/></signal>
+			</route>
+		</Z3w>
+	</H2>
+
+<!-- Blockstellen -->
+	<Z3w>
+		<Z2w>
+			<route>
+				<switch><w830 pos="0" /></switch>
+				<block><bw3/></block>
+				<signal><Z3w signal="1"/></signal>
+			</route>
+		</Z2w>
+	</Z3w>
+
+	<Z2w>
+		<Z1w>
+			<route>
+				<block><bw2/></block>
+				<signal><Z2w signal="1"/></signal>
+			</route>
+		</Z1w>
+	</Z2w>
+
+	<Z1w>
+		<Zw>
+			<route>
+				<block><bw1/></block>
+				<signal><Z1w signal="1"/></signal>
+			</route>
+		</Zw>
+	</Z1w>
+
+<!-- Fahrtrichtung 2 -->
+	<R1w>
+		<A1w>
+			<route>
+				<switch><W7w pos="0" /></switch>
+				<block><w7w/><bw1/></block>
+				<signal><R1w signal="1"/></signal>
+			</route>
+		</A1w>
+	</R1w>
+
+	<R2w>
+		<A1w>
+			<route>
+				<switch><W7w pos="1" /><W7 pos="1" /></switch>
+				<block><w7w/><bw1/></block>
+				<signal><R2w signal="2"/></signal>
+			</route>
+		</A1w>
+	</R2w>
+
+	<R3w>
+		<A1w>
+			<route>
+				<switch><W7w pos="1" /><W7 pos="0" /></switch>
+				<block><w7w/><bw1/></block>
+				<signal><R3w signal="1"/></signal>
+			</route>
+		</A1w>
+	</R3w>
+
+<!-- Blockstellen -->
+	<A1w>
+		<A2w>
+			<route>
+				<block><bw2/></block>
+				<signal><A1w signal="1"/></signal>
+			</route>
+		</A2w>
+	</A1w>
+
+	<A2w>
+		<A3w>
+			<route>
+				<switch><w830 pos="0" /></switch>
+				<block><bw3/></block>
+				<signal><A2w signal="1"/></signal>
+			</route>
+		</A3w>
+	</A2w>
+
+	<A3w>
+		<A>
+			<route>
+				<block><bw2/></block>
+				<signal><A3w signal="1"/></signal>
+			</route>
+		</A>
+	</A3w>
+
+
 <!--==============================-->
 <!-- Bahnhof Dreieichen -->
 <!-- Einfahrt links -->
 	<Zw>
 		<G1_DE>
+			<route>
+				<switch><W7w pos="0"/></switch>
+				<signal signal="1"><Zw/></signal>
+			</route>
 		</G1_DE>
 
 		<G2_DE>
+			<route>
+				<switch><W7w pos="1"/><W7 pos="1"/></switch>
+				<signal signal="2"><Zw/></signal>
+			</route>
 		</G2_DE>
-		
+
+		<GD_W>
+			<route>
+				<switch><W7w pos="1"/><W7 pos="0"/></switch>
+				<signal signal="2"><Zw/></signal>
+			</route>
+		</GD_W>
+
 		<GV4>
+			<route id="Zw=>G1_DE"/>
+			<route id="H1o=>Z3o"/>
+			<route id="Z3o=>Z2o"/>
+			<route id="Z2o=>Z1o"/>
+			<route id="Z1o=>Zo"/>
 		</GV4>
-		
+
 		<G1>
+			<route id="Zw=>G1_DE"/>
+			<route id="H1o=>Z3o"/>
+			<route id="Z3o=>Z2o"/>
+			<route id="Z2o=>Z1o"/>
+			<route id="Z1o=>Zo"/>
+			<route id="Zo=>G1"/>
 		</G1>
 
 		<G2>
+			<route id="Zw=>G1_DE"/>
+			<route id="H1o=>Z3o"/>
+			<route id="Z3o=>Z2o"/>
+			<route id="Z2o=>Z1o"/>
+			<route id="Z1o=>Zo"/>
+			<route id="Zo=>G2"/>
 		</G2>
 	</Zw>
+
 
 <!-- Einfahrt rechts -->
 	<Ao>
 		<G1_DE>
+			<route>
+				<switch><W4o pos="0"/></switch>
+				<signal signal="1"><Ao/></signal>
+			</route>
 		</G1_DE>
 
 		<G2_DE>
+			<route>
+				<switch><W4o pos="1"/><W4 pos="1"/></switch>
+				<signal signal="2"><Ao/></signal>
+			</route>
 		</G2_DE>
-		
-		<GV4>
-		</GV4>
-		
+
+		<GD_O>
+			<route>
+				<switch><W4o pos="1"/><W4 pos="0"/></switch>
+				<signal signal="2"><Ao/></signal>
+			</route>
+		</GD_O>
+
+		<GV1>
+			<route id="Ao=>G2_DE"/>
+			<route id="R2w=>A1w"/>
+			<route id="A1w=>A2w"/>
+			<route id="A2w=>A3w"/>
+			<route id="A3w=>A"/>
+		</GV1>
+
 		<G1>
+			<route id="Ao=>G2_DE"/>
+			<route id="R2w=>A1w"/>
+			<route id="A1w=>A2w"/>
+			<route id="A2w=>A3w"/>
+			<route id="A3w=>A"/>
+			<route id="A=>G1"/>
 		</G1>
 
 		<G2>
+			<route id="Ao=>G2_DE"/>
+			<route id="R2w=>A1w"/>
+			<route id="A1w=>A2w"/>
+			<route id="A2w=>A3w"/>
+			<route id="A3w=>A"/>
+			<route id="A=>G2"/>
 		</G2>
 	</Ao>
 
-<!-- Ausfahrt rechts -->
-	<H1o>
-		<GV4>
-		</GV4>
-		
-		<G1>
-		</G1>
-
-		<G2>
-		</G2>
-	</H1o>
-
-	<H2o>
-		<GV4>
-		</GV4>
-		
-		<G1>
-		</G1>
-
-		<G2>
-		</G2>
-	</H2o>
-	
-	<Z4n>
-		<GV4>
-		</GV4>
-		
-		<G1>
-		</G1>
-
-		<G2>
-		</G2>
-	</Z4n>
 
 <!-- Ausfahrt links -->
+
 	<R1w>
 		<GV1>
+			<route id="R1w=>A1w"/>
+			<route id="A1w=>A2w"/>
+			<route id="A2w=>A3w"/>
+			<route id="A3w=>A"/>
 		</GV1>
 		
 		<G1>
+			<route id="R1w=>A1w"/>
+			<route id="A1w=>A2w"/>
+			<route id="A2w=>A3w"/>
+			<route id="A3w=>A"/>
+			<route id="A=>G1"/>
 		</G1>
 
 		<G2>
+			<route id="R1w=>A1w"/>
+			<route id="A1w=>A2w"/>
+			<route id="A2w=>A3w"/>
+			<route id="A3w=>A"/>
+			<route id="A=>G2"/>
 		</G2>
 	</R1w>
 
 	<R2w>
 		<GV1>
+			<route id="R2w=>A1w"/>
+			<route id="A1w=>A2w"/>
+			<route id="A2w=>A3w"/>
+			<route id="A3w=>A"/>
 		</GV1>
 		
 		<G1>
+			<route id="R2w=>A1w"/>
+			<route id="A1w=>A2w"/>
+			<route id="A2w=>A3w"/>
+			<route id="A3w=>A"/>
+			<route id="A=>G1"/>
 		</G1>
 
 		<G2>
+			<route id="R2w=>A1w"/>
+			<route id="A1w=>A2w"/>
+			<route id="A2w=>A3w"/>
+			<route id="A3w=>A"/>
+			<route id="A=>G2"/>
 		</G2>
 	</R2w>
 	
-	<A4n>
+	<R3w>
 		<GV1>
+			<route id="R3w=>A1w"/>
+			<route id="A1w=>A2w"/>
+			<route id="A2w=>A3w"/>
+			<route id="A3w=>A"/>
 		</GV1>
 		
 		<G1>
+			<route id="R3w=>A1w"/>
+			<route id="A1w=>A2w"/>
+			<route id="A2w=>A3w"/>
+			<route id="A3w=>A"/>
+			<route id="A=>G1"/>
 		</G1>
 
 		<G2>
+			<route id="R3w=>A1w"/>
+			<route id="A1w=>A2w"/>
+			<route id="A2w=>A3w"/>
+			<route id="A3w=>A"/>
+			<route id="A=>G2"/>
 		</G2>
-	</A4n>
+	</R3w>
+
+<!-- Ausfahrt rechts -->
+	<H1o>
+		<GV4>
+			<route id="H1o=>Z3o"/>
+			<route id="Z3o=>Z2o"/>
+			<route id="Z2o=>Z1o"/>
+			<route id="Z1o=>Z"/>
+		</GV4>
+		
+		<G1>
+			<route id="H1o=>Z3o"/>
+			<route id="Z3o=>Z2o"/>
+			<route id="Z2o=>Z1o"/>
+			<route id="Z1o=>Z"/>
+			<route id="Z=>G1"/>
+		</G1>
+
+		<G2>
+			<route id="H1o=>Z3o"/>
+			<route id="Z3o=>Z2o"/>
+			<route id="Z2o=>Z1o"/>
+			<route id="Z1o=>Z"/>
+			<route id="Z=>G2"/>
+		</G2>
+	</H1o>
+
+	<H2o>
+		<GV4>
+			<route id="H2o=>Z3o"/>
+			<route id="Z3o=>Z2o"/>
+			<route id="Z2o=>Z1o"/>
+			<route id="Z1o=>Z"/>
+		</GV4>
+		
+		<G1>
+			<route id="H2o=>Z3o"/>
+			<route id="Z3o=>Z2o"/>
+			<route id="Z2o=>Z1o"/>
+			<route id="Z1o=>Z"/>
+			<route id="Z=>G1"/>
+		</G1>
+
+		<G2>
+			<route id="H2o=>Z3o"/>
+			<route id="Z3o=>Z2o"/>
+			<route id="Z2o=>Z1o"/>
+			<route id="Z1o=>Z"/>
+			<route id="Z=>G2"/>
+		</G2>
+	</H2o>
+	
+	<H3o>
+		<GV4>
+			<route id="H3o=>Z3o"/>
+			<route id="Z3o=>Z2o"/>
+			<route id="Z2o=>Z1o"/>
+			<route id="Z1o=>Z"/>
+		</GV4>
+		
+		<G1>
+			<route id="H3o=>Z3o"/>
+			<route id="Z3o=>Z2o"/>
+			<route id="Z2o=>Z1o"/>
+			<route id="Z1o=>Z"/>
+			<route id="Z=>G1"/>
+		</G1>
+
+		<G2>
+			<route id="H3o=>Z3o"/>
+			<route id="Z3o=>Z2o"/>
+			<route id="Z2o=>Z1o"/>
+			<route id="Z1o=>Z"/>
+			<route id="Z=>G2"/>
+		</G2>
+	</H3o>
+
+
+
 </route>

@@ -40,10 +40,10 @@ include_once("lib/status.php");
 
 $options = array(
 	"path" => "data/",
-	"control" => "control.xml",
+	"control" => "anlage.xml",
 	"route" => "route.xml",
 	"desk" => "silberwaldbahn.xml",
-	"blocks" => "block.xml"
+	"blocks" => "blocks.xml"
 );
 
 

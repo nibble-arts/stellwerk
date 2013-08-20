@@ -91,16 +91,16 @@ Strecke West
 			<b00 status_id="bw1"><B_left><text py="3" class="small">Bl.W 1</text><text py="1" class="strong">Dreieich.</text></B_left></b00>
 			<b11 status_id="bw1" signal_id="Z1w"><S_hs-0/></b11>
 
-			<b20 status_id="bw2" signal_id="A2w"><S_0-hs/></b20>
+			<b20 status_id="bw2" signal_id="A1w"><S_0-hs/></b20>
 			<b21 status_id="bw2"><B_010-010/><text py="3" class="small">Bl.W 2</text></b21>
 			<b22 status_id="bw2" signal_id="Z2w"><S_hs-0/></b22>
 
-			<b30 status_id="bw3" signal_id="A1w"><S_0-hs/></b30>
+			<b30 status_id="bw3" signal_id="A2w"><S_0-hs/></b30>
 			<b31 status_id="bw3"><B_010-010/><text py="3" class="small">Bl.W 3</text><field>0001.png</field></b31>
 			<b32 status_id="w830" switch_id="W830"><W_011-010/></b32>
 			<b33 status_id="bw3" signal_id="Z3w"><S_hs-0/></b33>
 
-			<b5 status_id="bw4" signal_id="BR2"><S_0-hs/></b5>
+			<b5 status_id="bw4" signal_id="A3w"><S_0-hs/></b5>
 			<b40 status_id="bw4"><B_right><text py="3" class="small">Bl.W 4</text><text py="1" class="strong">Gartenh.</text></B_right></b40>
 		</b>
 
@@ -130,7 +130,7 @@ Strecke Ost
 			<b00 status_id="bo1"><B_left><text py="3" class="small">Bl.O 1</text><text py="1" class="strong">Gartenh.</text></B_left></b00>
 			<b11 status_id="bo1" signal_id="Z1o"><S_hs-0/></b11>
 
-			<b20 status_id="bo2" signal_id="A2o"><S_0-hs/></b20>
+			<b20 status_id="bo2" signal_id="A1o"><S_0-hs/></b20>
 			<b21 status_id="bo2"><B_010-010/><text py="3" class="small">Bl.O 2</text></b21>
 			<b22 status_id="bo2" signal_id="Z2o"><S_hs-0/></b22>
 
@@ -145,77 +145,80 @@ Strecke Ost
 
 	<area order="4" name="bde" full="Bahnhof Dreieichen">
 		<a>
-			<a0></a0>
-			<a1></a1>
-			<a2></a2>
-			<a3></a3>
-			<a4><field>0001.png</field></a4>
-			<a5 status_id="gde_w"><B_001-010/></a5>
-			<a6 status_id="gde_w" signal_id="A4n"><S_hs-0/></a6>
-			<a7 status_id="gde_w"><B_right/></a7>
-			<a8></a8>
-			<a9 status_id="gde_o"><B_left/></a9>
-			<a10 status_id="gde_o" signal_id="Z4n"><S_0-hs/></a10>
-			<a11 status_id="gde_o"><B_010-001/></a11>
-			<a13><field>0010.png</field></a13>
-			<a14/>
-			<a15/>
-			<a16/>
-			<a17/>
+			<a00></a00>
+			<a01></a01>
+			<a02></a02>
+			<a03></a03>
+			<a10><field>0001.png</field></a10>
+			<a11 status_id="gde_w"><B_001-010/></a11>
+			<a12 status_id="gde_w" signal_id="R3w"><S_hs-0/></a12>
+			<a13 status_id="gde_w" block_id="GD_W"><B_010-B-010/><text py="1" class="strong">Dreieck W</text></a13>
+			<a14 status_id="gde_w"><B_right/></a14>
+
+			<a20></a20>
+
+			<a30 status_id="gde_o"><B_left/></a30>
+			<a31 status_id="gde_o" block_id="GD_O"><B_010-B-010/><text py="1" class="strong">Dreieck O</text></a31>
+			<a32 status_id="gde_o" signal_id="H3o"><S_0-hs/></a32>
+			<a33 status_id="gde_o"><B_010-001/></a33>
+			<a34><field>0010.png</field></a34>
+			<a40/>
+			<a41/>
+			<a42/>
+			<a43/>
 		</a>
 		
 		<b>
-			<c00/>
-			<c01/>
-			<c02/>
-			<c04><field>0001.png</field></c04>
+			<b00/>
+			<b01/>
+			<b02/>
+			<b04><field>0001.png</field></b04>
 
-			<b20 status_id="de_g2" switch_id="W7"><W_001-110/></b20>
-			<b22 status_id="de_g2"><B_010-010/><field>1000.png</field></b22>
+			<b10 status_id="de_g2" switch_id="W7"><W_001-110/></b10>
+			<b12 status_id="de_g2"><B_010-010/><field>1000.png</field></b12>
+			<b13 status_id="de_g2" signal_id="R2w"><S_hs-0/></b13>
 
-			<b21 status_id="de_g2" signal_id="R2w"><S_hs-0/></b21>
-
+			<b20 status_id="de_g2"><B_010-010/></b20>
+			<b21 status_id="de_g2"><B_010-010/></b21>
+			<b22 status_id="de_g2" block_id="G2_DE"><B_010-B-010><text py="1" class="strong">Gl. 2</text></B_010-B-010></b22>
 			<b23 status_id="de_g2"><B_010-010/></b23>
-			<b24 status_id="de_g2" block_id="G2_DE"><B_010-B-010><text py="1" class="strong">Gl. 2</text></B_010-B-010></b24>
-			<b25 status_id="de_g2"><B_010-010/></b25>
+			<b24 status_id="de_g2"><B_010-010/></b24>
 
-			<b27 status_id="de_g2" signal_id="H2o"><S_0-hs/></b27>
+			<b30 status_id="de_g2" signal_id="H2o"><S_0-hs/></b30>
+			<b31 status_id="de_g2"><B_010-010/><field>0100.png</field></b31>
+			<b32 status_id="de_g2" switch_id="W4"><W_110-001/></b32>
 
-			<b26 status_id="de_g2"><B_010-010/><field>0100.png</field></b26>
-			<b28 status_id="de_g2" switch_id="W4"><W_110-001/></b28>
-
-			<b30><field>0010.png</field></b30>
-
-			<b31/>
-			<b32/>
-			<b33/>
+			<b40><field>0010.png</field></b40>
+			<b41/>
+			<b42/>
+			<b43/>
 		</b>
 		
 		<c>
-			<b00 status_id="bw4"><B_left><text py="1" class="strong">Str. West</text></B_left></b00>
-			<b01 status_id="gv1" block_id="BW4"><B_010-B-010/></b01>
-			<b03 status_id="bw4" signal_id="Zw"><S_0-hs/></b03>
+			<c00 status_id="bw4"><B_left><text py="1" class="strong">Str. West</text></B_left></c00>
+			<c01 status_id="gv1" block_id="BW4"><B_010-B-010/></c01>
+			<c03 status_id="bw4" signal_id="Zw"><S_0-hs/></c03>
 
-			<b10 status_id="w7w" switch_id="W7w"><W_010-110/></b10>
-
-			<c10 status_id="g1"><B_010-010/><field>1000.png</field></c10>
+			<c10 status_id="w7w" switch_id="W7w"><W_010-110/></c10>
+			<c11 status_id="g1"><B_010-010/><field>1000.png</field></c11>
 
 			<c20 status_id="g1" signal_id="R1w"><S_hs-0/></c20>
 			<c21 status_id="g1"><B_010-010/></c21>
+			<c22 status_id="g1"><B_010-010/></c22>
+			<c23 status_id="g1"><B_010-010/></c23>
 
-			<c22 status_id="g1"><B_010-010></B_010-010></c22>
-			<c23 status_id="g1" block_id="G1_DE"><B_010-B-010><text py="1" class="strong">Gl. 1</text></B_010-B-010></c23>
-			<c24 status_id="g1"><B_010-010></B_010-010></c24>
-
-			<c26 status_id="g1" signal_id="H1o"><S_0-hs/></c26>
+			<c24 status_id="g1" block_id="G1_DE"><B_010-B-010><text py="1" class="strong">Gl. 1</text></B_010-B-010></c24>
+			<c25 status_id="g1"><B_010-010/></c25>
+			<c26 status_id="g1"><B_010-010/></c26>
 			<c27 status_id="g1"><B_010-010/></c27>
+			<c28 status_id="g1" signal_id="H1o"><S_0-hs/></c28>
 
 			<c29 status_id="g1"><B_010-010/><field>0100.png</field></c29>
 			<c30 status_id="w4o" switch_id="W4o"><W_110-010/></c30>
 			
-			<c40 status_id="bo1" signal_id="Ao"><S_hs-0/></c40>
+			<c40 status_id="bo4" signal_id="Ao"><S_hs-0/></c40>
 			<c42 status_id="gv4" block_id="BO4"><B_010-B-010/></c42>
-			<c43 status_id="bo1"><B_right><text py="1" class="strong">Str. Ost</text></B_right></c43>
+			<c43 status_id="bo4"><B_right><text py="1" class="strong">Str. Ost</text></B_right></c43>
 		</c>
 	</area>
 </desk>

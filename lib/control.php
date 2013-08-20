@@ -57,7 +57,7 @@ class Control {
 //==============================================================================
 // get list of possible signals
 	function get_signal() {
-		return $this->control->area->xPath("//signal");
+//		return $this->control->area->xPath("//signal");
 	}
 }
 

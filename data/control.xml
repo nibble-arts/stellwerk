@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+Control structure definition
+
+	The control structure contains the list of used control units and the links between block, switch and signal ids with the control unit ip-addresses.
+
+	block ... The block definition is a structure only existing inside the control scripts. It represents a area, which can be selected as an start or target of a train route. It has no ip definition
+
+	status ... A controled part of a track.
+
+	switch ... A switch with the position an the status, if it is free, locked, forced or a vehicle is standing on it.
+
+	signal ... A signal with its status.
+-->
+
+<anlage>
+	<area full="Silberwaldbahn" name="swb">
+
+
+<!--
+BAHNHOF GARTENHÜTTE
+-->
+		<area full="Bahnhof Gartenhütte" id="bgh">
+			<block id="GV1">
+			</block>
+ 			<block id="G1">
+			</block>
+			<block id="G2">
+			</block>
+			<block id="GV4">
+			</block>
+			<block id="G800">
+			</block>
+
+ 			<status id="gv1">
+				<ip>localhost/control.php?id=gv1</ip>
+ 			</status>
+ 			<status id="g1">
+				<ip>localhost/control.php?id=g1</ip>
+ 			</status>
+ 			<status id="g21">
+				<ip>localhost/control.php?id=g21</ip>
+ 			</status>
+ 			<status id="g2">
+				<ip>localhost/control.php?id=g2</ip>
+ 			</status>
+ 			<status id="gv2">
+				<ip>localhost/control.php?id=gv4</ip>
+ 			</status>
+ 			<status id="g800">
+				<ip>localhost/control.php?id=gv800</ip>
+ 			</status>
+
+ 			<switch id="W5">
+				<ip>localhost/control.php?id=W5</ip>
+ 			</switch>
+ 			<switch id="W6">
+				<ip>localhost/control.php?id=W6</ip>
+ 			</switch>
+ 			<switch id="W810">
+				<ip>localhost/control.php?id=W810</ip>
+ 			</switch>
+
+ 			<signal id="A">
+				<ip>localhost/control.php?id=A</ip>
+ 			</signal>
+ 			<signal id="V1">
+				<ip>localhost/control.php?id=V1</ip>
+ 			</signal>
+ 			<signal id="H1">
+				<ip>localhost/control.php?id=H1</ip>
+ 			</signal>
+ 			<signal id="H2">
+				<ip>localhost/control.php?id=H2</ip>
+ 			</signal>
+ 			<signal id="V21">
+				<ip>localhost/control.php?id=V21</ip>
+ 			</signal>
+ 			<signal id="V22">
+				<ip>localhost/control.php?id=V22</ip>
+ 			</signal>
+ 			<signal id="V800">
+				<ip>localhost/control.php?id=V800</ip>
+ 			</signal>
+ 			<signal id="V801">
+				<ip>localhost/control.php?id=V801</ip>
+ 			</signal>
+ 			<signal id="R1">
+				<ip>localhost/control.php?id=R1</ip>
+ 			</signal>
+ 			<signal id="R2">
+				<ip>localhost/control.php?id=R2</ip>
+ 			</signal>
+ 			<signal id="V31">
+				<ip>localhost/control.php?id=V31</ip>
+ 			</signal>
+ 			<signal id="V32">
+				<ip>localhost/control.php?id=V32</ip>
+ 			</signal>
+ 			<signal id="V4">
+				<ip>localhost/control.php?id=V4</ip>
+ 			</signal>
+ 			<signal id="Z">
+				<ip>localhost/control.php?id=Z</ip>
+ 			</signal>
+		</area>
+	
+<!--
+STRECKE WEST
+-->
+		<area full="Strecke West" name="strw">
+			<status id="bw1">
+				<ip>localhost/control.php?id=bw1</ip>
+			</status>
+			<status id="bw2">
+				<ip>localhost/control.php?id=bw2</ip>
+			</status>
+			<status id="bw3">
+				<ip>localhost/control.php?id=bw3</ip>
+			</status>
+			<status id="bw4">
+				<ip>localhost/control.php?id=bw4</ip>
+			</status>
+
+			<switch id="W830">
+				<ip>localhost/control.php?id=W830</ip>
+			</switch>
+
+ 			<signal id="Z1w">
+				<ip>localhost/control.php?id=Z1w</ip>
+ 			</signal>
+ 			<signal id="Z2w">
+				<ip>localhost/control.php?id=Z2w</ip>
+ 			</signal>
+ 			<signal id="Z3w">
+				<ip>localhost/control.php?id=Z3w</ip>
+ 			</signal>
+ 			<signal id="A1w">
+				<ip>localhost/control.php?id=A1w</ip>
+ 			</signal>
+ 			<signal id="A2w">
+				<ip>localhost/control.php?id=A2w</ip>
+ 			</signal>
+ 			<signal id="A3w">
+				<ip>localhost/control.php?id=A3w</ip>
+ 			</signal>
+ 			<signal id="V830">
+				<ip>localhost/control.php?id=V830</ip>
+ 			</signal>
+		</area>
+
+<!--
+STRECKE OST
+-->
+		<area full="Strecke Ost" name="stro">
+			<status id="bo1">
+				<ip>localhost/control.php?id=bo1</ip>
+			</status>
+			<status id="bo2">
+				<ip>localhost/control.php?id=bo2</ip>
+			</status>
+			<status id="bo3">
+				<ip>localhost/control.php?id=bo3</ip>
+			</status>
+			<status id="bo4">
+				<ip>localhost/control.php?id=bo4</ip>
+			</status>
+
+ 			<signal id="Z1o">
+				<ip>localhost/control.php?id=Z1o</ip>
+ 			</signal>
+ 			<signal id="Z2o">
+				<ip>localhost/control.php?id=Z2o</ip>
+ 			</signal>
+ 			<signal id="Z3o">
+				<ip>localhost/control.php?id=Z3o</ip>
+ 			</signal>
+ 			<signal id="A1o">
+				<ip>localhost/control.php?id=A1o</ip>
+ 			</signal>
+ 			<signal id="A2o">
+				<ip>localhost/control.php?id=A2o</ip>
+ 			</signal>
+ 			<signal id="A3o">
+				<ip>localhost/control.php?id=A3o</ip>
+ 			</signal>
+		</area>
+
+<!--
+BAHNHOF DREIEICHEN
+-->
+		<area full="Bahnhof Dreieichen" name="bde">
+			<block id="BW4">
+			</block>
+			<block id="BO4">
+			</block>
+			<block id="GV1">
+			</block>
+			<block id="G1_DE">
+			</block>
+			<block id="G2_DE">
+			</block>
+			<block id="GD_W">
+			</block>
+			<block id="GD_O">
+			</block>
+
+			<status id="bw1">
+				<ip>localhost/control.php?id=bw1</ip>
+			</status>
+			<status id="bw2">
+				<ip>localhost/control.php?id=bw2</ip>
+			</status>
+			<status id="bw3">
+				<ip>localhost/control.php?id=bw3</ip>
+			</status>
+			<status id="bw4">
+				<ip>localhost/control.php?id=bw4</ip>
+			</status>
+
+			<switch id="W830">
+				<ip>localhost/control.php?id=W830</ip>
+			</switch>
+
+ 			<signal id="Z1w">
+				<ip>localhost/control.php?id=Z1w</ip>
+ 			</signal>
+ 			<signal id="Z2w">
+				<ip>localhost/control.php?id=Z2w</ip>
+ 			</signal>
+ 			<signal id="Z3w">
+				<ip>localhost/control.php?id=Z3w</ip>
+ 			</signal>
+ 			<signal id="A1w">
+				<ip>localhost/control.php?id=A1w</ip>
+ 			</signal>
+ 			<signal id="A2w">
+				<ip>localhost/control.php?id=A2w</ip>
+ 			</signal>
+ 			<signal id="BR2">
+				<ip>localhost/control.php?id=BR2</ip>
+ 			</signal>
+ 			<signal id="V830">
+				<ip>localhost/control.php?id=V830</ip>
+ 			</signal>
+		</area>
+	</area>
+</anlage>
+

@@ -281,8 +281,9 @@ function createDesk(data,options) {
 	$("#"+root).append("<div style='clear:both'/>");
 
 
-// activate status/signal 0
+// activate status/signal/switch 0 - position 0
 	$("[light_id='signal0']").removeClass("off");
+	$("[light_id='status0-1']").removeClass("off");
 
 
 //TODO set status
