@@ -31,8 +31,6 @@ function init(initName, initUrl) {
 		});
 	});
 	
-	$("#do").bind("click",setDebug);
-	
 	
 // start sync interval
 //	setInterval(sync,syncTime);
@@ -135,9 +133,11 @@ function selectRoute(data,options) {
 	$.each($(data).find("route"), function() {
 		var id = $(this).attr("id");
 
+
 // select all blocks of route		
 		$.each($(this).find("block").children(), function() {
-			setStatus((this).nodeName,1);
+			$(this).attr("pos")
+			setStatus((this).nodeName,1,$(this).attr("pos"));
 		});
 
 // set all signals of route		
@@ -261,17 +261,27 @@ function createDesk(data,options) {
 				var px = $(fv).attr("px");
 				var py = $(fv).attr("py");
 
-			// off light image
+		// off light image
 				$("#"+id).append("<img src='"+imgPath+"black.png' class='offlight px"+px+" py"+py+"'>");
 			
-			// create lights
+		// create lights
 				$.each ($(fv).children(), function(lx,lv) {
 					var name = (lv).nodeName;
 					var lightId = $(lv).attr("id");
+					var pos = $(lv).attr("pos");
 					var color = $(lv).text();
-					
+
 					var status = "";
 
+// position defined
+
+					if (pos != undefined) {
+						var position = "pos='"+pos+"'";
+					} else {
+						var position = "";
+					}
+
+					
 // set id for block-status or signal
 					switch (name) {
 						case "status":
@@ -282,7 +292,7 @@ function createDesk(data,options) {
 							break;
 					}
 
-					$("#"+id).append("<img "+status+" light_id='"+name+lightId+"' src='"+imgPath+color+".png' class='light off px"+px+" py"+py+"'>");
+					$("#"+id).append("<img "+status+" "+position+" light_id='"+name+lightId+"' src='"+imgPath+color+".png' class='light off px"+px+" py"+py+"'>");
 				});
 			});
 
@@ -310,7 +320,7 @@ function createDesk(data,options) {
 
 // activate status/signal/switch 0 - position 0
 	$("[light_id='signal0']").removeClass("off");
-	$("[light_id='status0-1']").removeClass("off");
+	$("[light_id='status0'][pos='0']").removeClass("off");
 
 
 //TODO set status
@@ -359,7 +369,7 @@ function setPushed(element, options) {
 
 // HAT
 			case "hat":
-				$(".light[block_id]").addClass("off");
+				$(".light[block_id]").not("[pos]").addClass("off");
 				$("[light_id='signal1']").addClass("off");
 				$("[light_id='signal0']").removeClass("off");
 				break;
@@ -441,9 +451,21 @@ function clearActive() {
 
 //============================================================
 // set status lights
-function setStatus(id,status) {
+function setStatus(id,status, position) {
+
+// clear all status lights of block
 	$("[block_id='"+id+"'].light").addClass("off");
-	$("[light_id='status"+status+"'][block_id='"+id+"'].light").removeClass("off");
+
+// set status light with direction definition
+	if (position != undefined) {
+
+		$("[light_id='status"+status+"'][pos='"+position+"'][block_id='"+id+"'].light").removeClass("off");
+	}
+
+// set status light
+	else {
+		$("[light_id='status"+status+"'][block_id='"+id+"'].light").removeClass("off");
+	}
 }
 
 
@@ -458,7 +480,6 @@ function setSignal(id,status) {
 //============================================================
 function setStatusDisplay(id, status) {
 	var color = new Array("lightred","yellow","lightgreen");
-	
 	$("#"+id).css("background-color",color[status]);
 }
 

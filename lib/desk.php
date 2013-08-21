@@ -54,8 +54,15 @@ class Desk {
 			foreach($areaXml[0] as $entry) {
 				foreach($entry as $col) {
 					$name = (string)$col->children()->getName();
+					$pos = $col->attributes()->pos; // block light position
+					$block = $this->blocks->get_block($name);
 
-					simplexml_insert($col[0],$this->blocks->get_block($name));
+					if ($block and $pos) {
+						if (!$block->light->status->attributes()->pos)
+							$block->light->status->addAttribute("pos",$pos);
+					}
+
+					simplexml_insert($col[0],$block);
 				}
 			}
 

@@ -2,6 +2,7 @@
 
 class route {
 	private $route;
+	private $error;
 
 	function __construct($options) {
 
@@ -9,23 +10,40 @@ class route {
 		$xml = load_xml($options["path"],$options["route"]);
 		if (!$xml) die ("*** no route file found");
 		else $this->route = $xml;
+
+		$this->error = "";
 	}
 	
 
 //==============================================================================
 // get route
 	function get_route($start,$target) {
+		$this->error = "";
+
+		if (!$this->route->$start) {
+			$this->error = "'$start' not found";
+			return false; // no start
+		}
+
+		if (!$this->route->$start->$target) {
+			$this->error = "$start => $target not found";
+			return false; // no target
+		}
+		
 		$route = $this->route->$start->$target;
 
-//print_pre($start." ".$target);
-		
-		foreach($route->route as $entry) {
-			if ($routeId = (string)$entry->attributes()->id) {
+// routes defined
+		if ($route->route) {
+			foreach($route->route as $entry) {
+				if ($routeId = (string)$entry->attributes()->id) {
 // call recursion
-				$tempArray = explode("=>",$routeId);
+					$tempArray = explode("=>",$routeId);
 
-				simplexml_insert($entry, $this->get_route($tempArray[0],$tempArray[1])->route);
+					simplexml_insert($entry, $this->get_route($tempArray[0],$tempArray[1])->route);
+				}
 			}
+		} else {
+			$this->error = "no route defined for $start => $target";
 		}
 
 		return $route;
@@ -48,6 +66,13 @@ class route {
 		}
 
 		return $route;
+	}
+
+
+//==============================================================================
+// get error message
+	function get_error() {
+		return (string)$this->error;
 	}
 }
 
