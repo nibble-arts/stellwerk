@@ -57,9 +57,13 @@ class Desk {
 					$pos = $col->attributes()->pos; // block light position
 					$block = $this->blocks->get_block($name);
 
+	// insert block position definition to lights
 					if ($block and $pos) {
-						if (!$block->light->status->attributes()->pos)
-							$block->light->status->addAttribute("pos",$pos);
+						foreach ($block->light as $entry) {
+
+							if (!$entry->status->attributes()->pos)
+								$entry->status->addAttribute("pos",$pos);
+						}
 					}
 
 					simplexml_insert($col[0],$block);

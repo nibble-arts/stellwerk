@@ -369,9 +369,11 @@ function setPushed(element, options) {
 
 // HAT
 			case "hat":
-				$(".light[block_id]").not("[pos]").addClass("off");
+				$(".light[block_id]").addClass("off");
 				$("[light_id='signal1']").addClass("off");
+
 				$("[light_id='signal0']").removeClass("off");
+				$("[light_id='status0'][pos='0']").removeClass("off");
 				break;
 
 // GT
