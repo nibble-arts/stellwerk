@@ -14,7 +14,7 @@ Control desk layout definition
 			<a1 status_id="g800"><B_left/></a1>
 			<a0 status_id="g800" block_id="G800"><B_010-B-010/><text py="1" class="strong">Gl. 800</text></a0>
 			<a2 status_id="g800" signal_id="V801"><S_0-vs/></a2>
-			<a7 status_id="w810"><B_010-001/></a7>
+			<a7 status_id="w810" pos="1"><B_010-001/></a7>
 			<a8><field>0010.png</field></a8>
 			<a9/>
 			<a10/>
@@ -151,7 +151,7 @@ Strecke Ost
 			<a02></a02>
 			<a03></a03>
 			<a10><field>0001.png</field></a10>
-			<a11 status_id="gde_w"><B_001-010/></a11>
+			<a11 status_id="w7" pos="0"><B_001-010/></a11>
 			<a12 status_id="gde_w" signal_id="R3w"><S_hs-0/></a12>
 			<a13 status_id="gde_w" block_id="GD_W"><B_010-B-010/><text py="1" class="strong">Dreieck W</text></a13>
 			<a14 status_id="gde_w"><B_right/></a14>
@@ -176,7 +176,7 @@ Strecke Ost
 			<b04><field>0001.png</field></b04>
 
 			<b10 status_id="w7" switch_id="W7"><W_001-110/></b10>
-			<b12 status_id="w7"><B_010-010/><field>1000.png</field></b12>
+			<b12 status_id="w7" pos="1"><B_010-010/><field>1000.png</field></b12>
 			<b13 status_id="de_g2" signal_id="R2w"><S_hs-0/></b13>
 
 			<b20 status_id="de_g2"><B_010-010/></b20>

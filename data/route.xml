@@ -94,7 +94,7 @@ Route structure definition
 		<G2 signal="1">
 			<route>
 				<switch><W6 pos="1"/><W810 pos="0"/></switch>
-				<block lock="0"><w6 pos="1"/><g21/><g2/></block>
+				<block lock="0"><w6 pos="1"/><w810 pos="0"/><g21/><g2/></block>
 				<signal><V1 signal="1"/></signal>
 			</route>
 		</G2>
@@ -205,8 +205,8 @@ Route structure definition
 
 		<G830>
 			<route>
-				<switch><w6 pos="0" /><w830 pos="1"/></switch>
-				<block lock="0"><w6 pos="0"/><gv1/><bw4/><bw3/><g830/></block>
+				<switch><W6 pos="0" /><W830 pos="1"/></switch>
+				<block lock="0"><w6 pos="0"/><gv1/><bw4/><bw3/><w830 pos="1"/><g830/></block>
 				<signal signal="1"><V21/></signal>
 			</route>
 		</G830>
@@ -224,7 +224,7 @@ Route structure definition
 		<G830>
 			<route>
 				<switch><w6 pos="1" /><w830 pos="1"/></switch>
-				<block lock="0"><w6 pos="1"/><g21/><gv1/><bw4/><bw3/><g830/></block>
+				<block lock="0"><w6 pos="1"/><g21/><gv1/><bw4/><bw3/><w830 pos="1"/><g830/></block>
 				<signal signal="1"><V22/></signal>
 			</route>
 		</G830>
@@ -237,7 +237,7 @@ Route structure definition
 		<G800>
 			<route>
 				<switch><W810 pos="1"/></switch>
-				<block lock="0"><w810 pos="810"/><g800/></block>
+				<block lock="0"><w810 pos="1"/><g800/></block>
 				<signal signal="1"><V800/></signal>
 			</route>
 		</G800>
@@ -571,7 +571,7 @@ Route structure definition
 		<Z2w>
 			<route>
 				<switch><w830 pos="0" /></switch>
-				<block><bw3/></block>
+				<block><w830 pos="0"/><bw3/></block>
 				<signal><Z3w signal="1"/></signal>
 			</route>
 		</Z2w>
@@ -631,7 +631,7 @@ Route structure definition
 	<Zw>
 		<G1_DE>
 			<route>
-				<switch><W7w pos="0"/></switch>
+				<switch><w7w pos="0"/></switch>
 				<block><w7w pos="0"/><de_g1/></block>
 				<signal signal="1"><Zw/></signal>
 			</route>
@@ -774,7 +774,7 @@ Route structure definition
 		<A1w>
 			<route>
 				<switch><W7w pos="1" /><W7 pos="1" /></switch>
-				<block><w7w pos="1"/><bw1/></block>
+				<block><w7 pos="1"/><w7w pos="1"/><bw1/></block>
 				<signal><R2w signal="2"/></signal>
 			</route>
 		</A1w>
