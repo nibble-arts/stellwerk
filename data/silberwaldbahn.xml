@@ -12,11 +12,14 @@ Control desk layout definition
 			<a5><G/></a5>
 			<a6><G_HAT/></a6>
 			<a1 status_id="g800"><B_left/></a1>
-			<a0 status_id="g800" block_id="G800"><B_010-B-010/><text py="1" class="strong">Gl. 800</text></a0>
+			<a0 status_id="g800" block_id="G800">
+				<B_010-B-010/>
+				<text py="1" class="strong">Gl. 800</text>
+			</a0>
 			<a2 status_id="g800" signal_id="V801"><S_0-vs/></a2>
 			<a7 status_id="w810" pos="1"><B_010-001/></a7>
 			<a8><field>0010.png</field></a8>
-			<a9/>
+			<a9></a9>
 			<a10/>
 			<a12/>
 			<a13/>
@@ -38,11 +41,18 @@ Control desk layout definition
 			<b20 status_id="w6" pos="1"><B_001-010/></b20>
 
 			<b21 status_id="g21" signal_id="H2"><S_hs-0/></b21>
-			<b22 status_id="g21" signal_id="V22"><S_vs-0/><field>0100.png</field></b22>
+			<b22 status_id="g21" signal_id="V22">
+				<S_vs-0/>
+				<field>0100.png</field>
+			</b22>
 			<b23 status_id="w810" switch_id="W810"><W_110-010/></b23>
 
 			<b25 status_id="g2" signal_id="V800"><S_vs-0></S_vs-0></b25>
-			<b24 status_id="g2" block_id="G2"><B_010-B-010><text py="1" class="strong">Gl. 2</text></B_010-B-010></b24>
+			<b24 status_id="g2" block_id="G2">
+				<B_010-B-010>
+				<text py="1" class="strong">Gl. 2</text></B_010-B-010>
+				<field py="3">arrow-left.png</field>
+			</b24>
 
 			<b26 status_id="g2" signal_id="V32"><S_0-vs/></b26>
 			<b27 status_id="g2" signal_id="R2"><S_0-hs/></b27>
@@ -69,7 +79,7 @@ Control desk layout definition
 			<c20 status_id="g1" signal_id="H1"><S_hs-0/></c20>
 			<c21 status_id="g1" signal_id="V21"><S_vs-0/></c21>
 			<c22 status_id="g1"><B_010-010></B_010-010></c22>
-			<c23 status_id="g1" block_id="G1"><B_010-B-010><text py="1" class="strong">Gl. 1</text></B_010-B-010></c23>
+			<c23 status_id="g1" block_id="G1"><B_010-B-010><text py="1" class="strong">Gl. 1</text></B_010-B-010><field py="3">arrow-right.png</field></c23>
 			<c24 status_id="g1"><B_010-010></B_010-010></c24>
 			<c25 status_id="g1" signal_id="V31"><S_0-vs/></c25>
 			<c26 status_id="g1" signal_id="R1"><S_0-hs/></c26>
@@ -181,7 +191,7 @@ Strecke Ost
 
 			<b20 status_id="de_g2"><B_010-010/></b20>
 			<b21 status_id="de_g2"><B_010-010/></b21>
-			<b22 status_id="de_g2" block_id="G2_DE"><B_010-B-010><text py="1" class="strong">Gl. 2</text></B_010-B-010></b22>
+			<b22 status_id="de_g2" block_id="G2_DE"><B_010-B-010><text py="1" class="strong">Gl. 2</text></B_010-B-010><field py="3">arrow-left.png</field></b22>
 			<b23 status_id="de_g2"><B_010-010/></b23>
 			<b24 status_id="de_g2"><B_010-010/></b24>
 
@@ -208,7 +218,11 @@ Strecke Ost
 			<c22 status_id="de_g1"><B_010-010/></c22>
 			<c23 status_id="de_g1"><B_010-010/></c23>
 
-			<c24 status_id="de_g1" block_id="G1_DE"><B_010-B-010><text py="1" class="strong">Gl. 1</text></B_010-B-010></c24>
+			<c24 status_id="de_g1" block_id="G1_DE">
+				<B_010-B-010/>
+				<text py="1" class="strong">Gl. 1</text>
+				<field py="3">arrow-right.png</field>
+			</c24>
 			<c25 status_id="de_g1"><B_010-010/></c25>
 			<c26 status_id="de_g1"><B_010-010/></c26>
 			<c27 status_id="de_g1"><B_010-010/></c27>

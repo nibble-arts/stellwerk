@@ -9,6 +9,8 @@ var selectColor = "#a0ffa0";
 var counter;
 var timeout = 0;
 var active;
+var deskCount = 0; // number of desks
+var loadedDeskCount = 0; // number of correct loaded desks
 
 var syncTime = 5000; // sync desk every 5 seconds
 
@@ -20,6 +22,8 @@ function init(initName, initUrl) {
 // load desk from api
 	url = initUrl;
 	
+	hideError();
+	
 	api({ data: "cmd=getareas" },function(data) {
 
 		$.each($(data).find("area"), function (i,v) {
@@ -27,6 +31,8 @@ function init(initName, initUrl) {
 			var full = $(v).attr("full");
 			var status = $(v).attr("status");
 
+// load next desk
+			deskCount++;
 			api({ data: "cmd=getdesk&area="+name, name: name, status: status },createDesk);
 		});
 	});
@@ -74,15 +80,28 @@ function api(options,callback) {
 		if	($(data).find("error").text() == "no error")
 			callback($(data).find("apiXml"),options);
 		else
-			alert($(data).find("error").text());
+			setError("API-error: "+$(data).find("error").text());
 
 		},
 		error: function (xhr, msg) {
-			alert("error: " + xhr.responseText + " " + msg);
+			setError("Communication-error: " + xhr.responseText + " " + msg);
 		}
 	});
 }
 
+
+//============================================================
+// show or hide error message
+function setError(text) {
+	$("#errorStatus")
+		.show()
+		.text(text)
+		.css("background-color","red");
+}
+
+function hideError() {
+	$("#errorStatus").hide();
+}
 
 //============================================================
 // get status from api
@@ -145,6 +164,17 @@ function selectRoute(data,options) {
 			setSignal((this).nodeName,1);
 		});
 	});
+}
+
+
+//============================================================
+// clear route
+function clearRoute(start,ende) {
+		$(".light[block_id]").addClass("off");
+		$("[light_id='signal1']").addClass("off");
+
+		$("[light_id='signal0']").removeClass("off");
+		$("[light_id='status0'][pos='0']").removeClass("off");
 }
 
 
@@ -235,7 +265,16 @@ function createDesk(data,options) {
 // insert field images
 			element = $(vx).find("field");
 			$.each(element, function(fx,fv) {
-				$("#"+id).append("<img src='"+imgPath+$(fv).text()+"' class='block'>");
+				var px = $(fv).attr("px");
+				var py = $(fv).attr("py");
+				
+				if (px != undefined) px = "px"+px;
+				else px = "";
+
+				if (py != undefined) py = "py"+py;
+				else py = "";
+
+				$("#"+id).append("<img src='"+imgPath+$(fv).text()+"' class='field "+px+" "+py+"'>");
 			});
 
 
@@ -329,8 +368,11 @@ function createDesk(data,options) {
 
 //	setSignal("V830",1);
 
-// set desk status to ok 
-	setStatusDisplay("deskStatus",2);
+// set desk status to ok if all desks loaded
+	loadedDeskCount++;
+	if (loadedDeskCount == deskCount)
+		setStatusDisplay("deskStatus",2);
+
 
 // sync status with api
 	syncStatus();
@@ -344,6 +386,9 @@ function setPushed(element, options) {
 	var id = element.data.id;
 	var start = element.data.start;
 
+
+//============================================================
+// first button pushed
 	if (!$("#"+id).attr("active")) {
 
 		switch (type) {
@@ -369,11 +414,7 @@ function setPushed(element, options) {
 
 // HAT
 			case "hat":
-				$(".light[block_id]").addClass("off");
-				$("[light_id='signal1']").addClass("off");
-
-				$("[light_id='signal0']").removeClass("off");
-				$("[light_id='status0'][pos='0']").removeClass("off");
+				clearRoute();
 				break;
 
 // GT
@@ -386,6 +427,8 @@ function setPushed(element, options) {
 		}
 	}
 
+//============================================================
+// second button pushed
 	setActive(id);
 }
 

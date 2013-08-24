@@ -554,12 +554,12 @@ Route structure definition
 	</Z2o>
 
 	<Z1o>
-		<Z>
+		<GV4>
 			<route>
 				<block><bo1/></block>
 				<signal><Z1o signal="1"/></signal>
 			</route>
-		</Z>
+		</GV4>
 	</Z1o>
 
 
@@ -658,7 +658,7 @@ Route structure definition
 			<route id="H1o=>Z3o"/>
 			<route id="Z3o=>Z2o"/>
 			<route id="Z2o=>Z1o"/>
-			<route id="Z1o=>Zo"/>
+			<route id="Z1o=>GV4"/>
 		</GV4>
 
 		<G1>
@@ -666,8 +666,8 @@ Route structure definition
 			<route id="H1o=>Z3o"/>
 			<route id="Z3o=>Z2o"/>
 			<route id="Z2o=>Z1o"/>
-			<route id="Z1o=>Zo"/>
-			<route id="Zo=>G1"/>
+			<route id="Z1o=>GV4"/>
+			<route id="Z=>G1"/>
 		</G1>
 
 		<G2>
@@ -675,8 +675,8 @@ Route structure definition
 			<route id="H1o=>Z3o"/>
 			<route id="Z3o=>Z2o"/>
 			<route id="Z2o=>Z1o"/>
-			<route id="Z1o=>Zo"/>
-			<route id="Zo=>G2"/>
+			<route id="Z1o=>GV4"/>
+			<route id="Z=>G2"/>
 		</G2>
 	</Zw>
 
@@ -850,7 +850,7 @@ Route structure definition
 			<route id="H1o=>Z3o"/>
 			<route id="Z3o=>Z2o"/>
 			<route id="Z2o=>Z1o"/>
-			<route id="Z1o=>Z"/>
+			<route id="Z1o=>GV4"/>
 		</GV4>
 		
 		<G1>
@@ -883,14 +883,14 @@ Route structure definition
 			<route id="H2o=>Z3o"/>
 			<route id="Z3o=>Z2o"/>
 			<route id="Z2o=>Z1o"/>
-			<route id="Z1o=>Z"/>
+			<route id="Z1o=>GV4"/>
 		</GV4>
 		
 		<G1>
 			<route id="H2o=>Z3o"/>
 			<route id="Z3o=>Z2o"/>
 			<route id="Z2o=>Z1o"/>
-			<route id="Z1o=>Z"/>
+			<route id="Z1o=>GV4"/>
 			<route id="Z=>G1"/>
 		</G1>
 
@@ -898,7 +898,7 @@ Route structure definition
 			<route id="H2o=>Z3o"/>
 			<route id="Z3o=>Z2o"/>
 			<route id="Z2o=>Z1o"/>
-			<route id="Z1o=>Z"/>
+			<route id="Z1o=>GV4"/>
 			<route id="Z=>G2"/>
 		</G2>
 	</H2o>
@@ -916,14 +916,14 @@ Route structure definition
 			<route id="H3o=>Z3o"/>
 			<route id="Z3o=>Z2o"/>
 			<route id="Z2o=>Z1o"/>
-			<route id="Z1o=>Z"/>
+			<route id="Z1o=>GV4"/>
 		</GV4>
 		
 		<G1>
 			<route id="H3o=>Z3o"/>
 			<route id="Z3o=>Z2o"/>
 			<route id="Z2o=>Z1o"/>
-			<route id="Z1o=>Z"/>
+			<route id="Z1o=>GV4"/>
 			<route id="Z=>G1"/>
 		</G1>
 
@@ -931,7 +931,7 @@ Route structure definition
 			<route id="H3o=>Z3o"/>
 			<route id="Z3o=>Z2o"/>
 			<route id="Z2o=>Z1o"/>
-			<route id="Z1o=>Z"/>
+			<route id="Z1o=>GV4"/>
 			<route id="Z=>G2"/>
 		</G2>
 	</H3o>

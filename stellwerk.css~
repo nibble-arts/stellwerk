@@ -30,7 +30,6 @@ body {
 	padding: 2px;
 	margin-right: 5pt;
 	background-color: red;
-	z-index: 999;
 }
 
 .error {

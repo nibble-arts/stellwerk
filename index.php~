@@ -22,7 +22,7 @@ http://www.iggmp.net/stellwerk/api.php
 		<div id="status">
 			<span id="deskStatus" class="status">Desk</span>
 			<span id="syncStatus" class="status">Sync</span>
-			<span id="errorStatus" class="error">no error</span>
+			<span id="errorStatus" class="status">no error</span>
 		</div>
 	</body>
 </html>

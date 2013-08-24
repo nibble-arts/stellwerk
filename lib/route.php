@@ -39,7 +39,10 @@ class route {
 // call recursion
 					$tempArray = explode("=>",$routeId);
 
-					simplexml_insert($entry, $this->get_route($tempArray[0],$tempArray[1])->route);
+					if (count($tempArray) > 1)
+						simplexml_insert($entry, $this->get_route($tempArray[0],$tempArray[1])->route);
+					else
+						$this->error = "syntax error in route definition $routeId";
 				}
 			}
 		} else {
