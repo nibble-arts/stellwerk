@@ -13,6 +13,7 @@ var deskCount = 0; // number of desks
 var loadedDeskCount = 0; // number of correct loaded desks
 
 var syncTime = 5000; // sync desk every 5 seconds
+var blinkTime = 1000; // blink every second
 
 
 //============================================================
@@ -38,11 +39,20 @@ function init(initName, initUrl) {
 	});
 	
 	
+// start blink
+setInterval(blink,blinkTime);
+
 // start sync interval
 //	setInterval(sync,syncTime);
 
 // start watchdog
 //	setInterval(watchdog,syncTime*3.14);
+}
+
+
+function blink() {
+//	$("[signal_id='"+id+"'].light").addClass("off");
+//	$("[light_id='signal"+status+"'][signal_id='"+id+"'].light").removeClass("off");
 }
 
 
@@ -312,8 +322,8 @@ function createDesk(data,options) {
 
 					var status = "";
 
-// position defined
 
+// position defined
 					if (pos != undefined) {
 						var position = "pos='"+pos+"'";
 					} else {
@@ -363,7 +373,7 @@ function createDesk(data,options) {
 
 
 //TODO set status
-//	setStatus("w830",1);
+//	setStatus("w7w",1);
 //	setStatus("s03",1);
 
 //	setSignal("V830",1);

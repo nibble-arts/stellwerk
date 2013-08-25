@@ -32,11 +32,11 @@ Control desk layout definition
 		</a>
 		
 		<b>
-			<c00/>
-			<c01/>
-			<c02/>
-			<c03/>
-			<c04><field>0001.png</field></c04>
+			<b00/>
+			<b01/>
+			<b02/>
+			<b03/>
+			<b04><field>0001.png</field></b04>
 
 			<b20 status_id="w6" pos="1"><B_001-010/></b20>
 
@@ -68,13 +68,13 @@ Control desk layout definition
 		</b>
 		
 		<c>
-			<b00 status_id="bw4"><B_left><text py="1" class="strong">Str. West</text></B_left></b00>
-			<b03 status_id="bw4" signal_id="A"><S_0-hs/></b03>
-			<b01 status_id="gv1" block_id="GV1"><B_010-B-010/></b01>
-			<b02 status_id="gv1" signal_id="V1"><S_0-vs/></b02>
+			<c00 status_id="bw4"><B_left><text py="1" class="strong">Str. West</text></B_left></c00>
+			<c03 status_id="bw4" signal_id="A"><S_0-hs/></c03>
+			<c01 status_id="gv1" block_id="GV1"><B_010-B-010/></c01>
+			<c02 status_id="gv1" signal_id="V1"><S_0-vs/></c02>
 
-			<b10 status_id="w6" switch_id="W6"><W_010-110/></b10>
-			<c10 status_id="w6" pos="0"><B_010-010/><field>1000.png</field></c10>
+			<c10 status_id="w6" switch_id="W6"><W_010-110/></c10>
+			<c11 status_id="w6" pos="0"><B_010-010/><field>1000.png</field></c11>
 
 			<c20 status_id="g1" signal_id="H1"><S_hs-0/></c20>
 			<c21 status_id="g1" signal_id="V21"><S_vs-0/></c21>
@@ -211,7 +211,7 @@ Strecke Ost
 			<c03 status_id="bw1" signal_id="Zw"><S_0-hs/></c03>
 
 			<c10 status_id="w7w" switch_id="W7w"><W_010-110/></c10>
-			<c11 status_id="w7w" pos="0"><B_010-010/><field>1000.png</field></c11>
+			<c11 status_id="w7w" pos="3"><B_010-010/><field>1000.png</field></c11>
 
 			<c20 status_id="de_g1" signal_id="R1w"><S_hs-0/></c20>
 			<c21 status_id="de_g1"><B_010-010/></c21>

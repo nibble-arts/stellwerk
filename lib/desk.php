@@ -53,16 +53,24 @@ class Desk {
 		if (count($areaXml)) {
 			foreach($areaXml[0] as $entry) {
 				foreach($entry as $col) {
+//print_pre($col);
 					$name = (string)$col->children()->getName();
 					$pos = $col->attributes()->pos; // block light position
+
+	// get block definition
 					$block = $this->blocks->get_block($name);
 
-	// insert block position definition to lights
+	// insert block/position definition to lights
 					if ($block and $pos) {
-						foreach ($block->light as $entry) {
 
-							if (!$entry->status->attributes()->pos)
-								$entry->status->addAttribute("pos",$pos);
+	// set position values for light
+						foreach ($block->light as $light) {
+							if (!$light->status->attributes()->pos) {
+
+								foreach ($light->status as $status) {
+									$status->addAttribute("pos",$pos);
+								}
+							}
 						}
 					}
 

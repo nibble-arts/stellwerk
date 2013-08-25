@@ -297,8 +297,12 @@ Difinitions:
 			<status id="2" pos="1">red</status>
 		</light>
 		<light px="3" py="3">
-			<status id="1">yellow</status>
-			<status id="2">red</status>
+			<status id="1" pos="0">yellow</status>
+			<status id="2" pos="0">red</status>
+		</light>
+		<light px="3" py="3">
+			<status id="1" pos="1">yellow</status>
+			<status id="2" pos="1">red</status>
 		</light>
 	</W_110-001>
 
@@ -320,8 +324,12 @@ Difinitions:
 			<status id="2" pos="1">red</status>
 		</light>
 		<light px="1" py="3">
-			<status id="1">yellow</status>
-			<status id="2">red</status>
+			<status id="1" pos="0">yellow</status>
+			<status id="2" pos="0">red</status>
+		</light>
+		<light px="1" py="3">
+			<status id="1" pos="1">yellow</status>
+			<status id="2" pos="1">red</status>
 		</light>
 	</W_001-110>
 
