@@ -1,0 +1,18 @@
+Train numbers
+-------------
+
+Each train travelling in the control area gets a train number. This number can be a alphanumeric string. The train number is linked to the block, the train is standing in.
+
+
+Single train tracks
+-------------------
+
+If the train is in a block, which accepts only one train, the train number is automatically transfered to the next block, when the train is moving on. This makes it possible, to always get the correct position of a train in the control area.
+
+
+Multiple train tracks
+---------------------
+
+If the train is in a block, where more trains are excepted (i.e. station tracks), a list of the trains registered in the block is displayed, when pushing the route start and end button. If no train number is selected, a incognito ride is initialized, where no number is routed during the travel. In this case, a train, using a routing device, can not control its position.
+
+If a train number is selected, this train can follow its position all the time.

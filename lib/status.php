@@ -23,90 +23,84 @@
 
 // script to save and retreave railway status informations
 
+include_once("lib/sqlite.php");
+
+
 class Status {
 	var $statusPath = "status/";
 	var $statusLife = 20; // life time for status informations
+	var $db;
+	
+//=========================================================
+// create or open status database
+
+	function __construct() {
+		$dbPath = "db/";
+		$dbName = "status.db";
+
+// create new database
+		if (!file_exists($dbPath.$dbName)) {
+			$this->db = new Database($dbPath.$dbName);
+
+			$this->db->create_table("route","ID integer PRIMARY KEY AUTOINCREMENT,name text");
+			$this->db->create_table("block","ID integer PRIMARY KEY AUTOINCREMENT,status integer,lock integer,time integer");
+			$this->db->create_table("fifo","ID integer PRIMARY KEY AUTOINCREMENT,block integer,route integer");
+		}
+
+// open database
+		else
+			$this->db = new Database($dbPath.$dbName);
+	}
+
+
+
+
 
 //=========================================================
 // update status informations
 	function update() {
-
 	}
-
 
 
 //=========================================================
 // get status information from module with id
 	function get_status($id) {
-	}
+
+// check if status db is up to date
+		$query = "";
+//		$time = $this->db->query($query);
+
+//print_pre($this->db);
+
+// update old entries
 
 
-//=========================================================
-// get timestamp of status file
-	function get_timestamp($id) {
-		$dir = dir($this->statusPath.$id);
-		
-		while ($entry = $dir->read()) {
-			if ($entry != "." and $entry != "..")
-			 	break;
-		}
+// return status information as xml
 
-		$dir->close();
-
-		return $entry;
 	}
 
 
 //=========================================================
 // looks if status information is alive
 	function is_alive($id) {
-		$timestamp = $this->get_timestamp($id);
-
-		if ((time() - $timestamp) > $this->statusLife)
-			return FALSE;
-		else
-			return TRUE;
 	}
 	
 	
 //=========================================================
+// get timestamp of status file
+	function get_timestamp($id) {
+	}
+
+
+//=========================================================
 // look if status exists
 	function status_exists($id) {
-
-// status exist
-// check timestamp
-		if (file_exists($this->statusPath.$id)) {
-			if ($this->is_alive($id))
-				echo "status is alive";
-
-			else {
-				echo "status died";
-// delete status
-				$this->update_status($id);
-			}	
-		} else {
-
-
-echo "create status $id<br>";
-			$this->update_status($id);
-		}
 	}
 	
 
 //=========================================================
 // create status definition
 	function update_status($id) {
-// delete old status
-//		if (file_exists($this->statusPath.$id))
-		
-
-//TODO request status from railway
-
-		mkdir($this->statusPath.$id);
-
-		$fileHandle = fopen($this->statusPath.$id."/".time().".stat","w");
-		fwrite($fileHandle,"<{$id}><status>0</status><signal>0</signal><position>0</position></{$id}>");
-		fclose($fileHandle);
 	}
 }
 

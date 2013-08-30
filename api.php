@@ -142,23 +142,17 @@ if (isset($cmd)) {
 //=========================================================
 // get status of railway
 		case "getstatus":
-			if (isset($id)) {
-			print_pre($id);
-			} else {
-			
-			
-//TODO get status
-//				$status->status_exists("w1");
+			if (!isset($id))
+				$id = "";
 
+			$status->get_status($id);
 
-
-				$output = new simpleXmlElement("
-					<apiXml><data>
-						<w1 status='0' position='0'/>
-						<A status='0' signal='1'/>
-					</data></apiXml>
-				");
-			}
+			$output = new simpleXmlElement("
+				<apiXml><data>
+					<w1 status='0' position='0'/>
+					<A status='0' signal='1'/>
+				</data></apiXml>
+			");
 			break;
 
 

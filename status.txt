@@ -1,0 +1,50 @@
+Route list definition
+---------------------
+
+The requested routes are written to a route list. The routes can be simple (from a signal to the next), or complex, using more than one simple route. Each requested route, defined by the start and end id (start_id=>end_id) is written in the route table. Each complex route is split up to simple routes. The uid of the table is used for the locking of the dependent blocks of all contained simple routes.
+
+The HAT (Hilfs-Auflöse-Taste) can clear a route, by selecting the start and end. In this case all id entries of the cleared route are deleted in the blocks.
+
+
+Status changes
+--------------
+
+The route lock status is changed, when the following conditions occur:
+
+	from 0 -> 1 (request):
+		A start-end combination has be sent to the control-api. The route is written to the route table, all blocks of the selected route are set to lock=1 and the route id are stored to the fifo route stack of the blocks.
+		
+	from 1 -> 2 (lock):
+		All blocks of a simple route are status = 0, lock = 0 -> The blocks are set to lock 2 and the dependent signals set to the stored position.
+
+	from 2 -> 0 (free):
+		All blocks in lock status 2 changed from status 0 -> 1 and back from 1 -> 0 (train passed by). The route ids are deleted from the top of the fifo stack in the blocks.
+
+
+Block database definition
+-------------------------
+
+Each block of the railway has a definition in the database. It contains:
+
+	*) id of the block
+	*) status of the block:
+				0 ... block is empty
+				1 ... a vehicle is in the block
+	*) lock status of the block
+				0 ... block is free
+				1 ... block is requested
+				2 ... block is locked
+	*) route list
+				The route list is a fifo stack, containing route ids. If a route is defined, the route id is written to the end of all contained blocks.
+		
+
+Display dependencies
+--------------------
+
+With the 'getstatus' command the status and lock information is returned. The display of a block is depending of the status and lock:
+
+	*) off: status and block are 0
+	*) yellow blink: status = 0, lock = 1
+	*) yellow: status = 0, lock = 2
+	*) red: status = 1
+

@@ -40,10 +40,10 @@ function init(initName, initUrl) {
 	
 	
 // start blink
-setInterval(blink,blinkTime);
+	setInterval(blink,blinkTime);
 
 // start sync interval
-//	setInterval(sync,syncTime);
+	setInterval(sync,syncTime);
 
 // start watchdog
 //	setInterval(watchdog,syncTime*3.14);
