@@ -52,7 +52,10 @@ $options = array(
 
 $control = new Control($options);
 $desk = new Desk($options);
+
 $status = new Status($options);
+//$status->init($control);
+
 $route = new Route($options);
 
 $output = new simpleXmlElement("<apiXml></apiXml>");

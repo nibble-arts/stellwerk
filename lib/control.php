@@ -42,9 +42,30 @@ class Control {
 
 
 //==============================================================================
-// get list of possible signals
+// get list of blocks
+	function get_block() {
+		return $this->control->area->xPath("//block");
+	}
+
+
+//==============================================================================
+// get list of stati
+	function get_status() {
+		return $this->control->xPath("//status");
+	}
+
+
+//==============================================================================
+// get list of signals
 	function get_signal() {
-//		return $this->control->area->xPath("//signal");
+		return $this->control->area->xPath("//signal");
+	}
+
+
+//==============================================================================
+// get list of switches
+	function get_switch() {
+		return $this->control->area->xPath("//switch");
 	}
 }
 

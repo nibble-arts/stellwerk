@@ -31,7 +31,8 @@ class Database {
 	function __construct($path) {
 		$this->db = new SQLite3($path);
 	}
-	
+
+
 //===========================================================
 // create table if not exists
 	function create_table($table,$define) {
@@ -40,54 +41,50 @@ class Database {
 			$this->db->exec($query);
 	}
 	
+
 //===========================================================
 // close database
 	function close() {
 		$this->db->close();
 	}
 
+
+//===========================================================
+// insert data in table
+//    content = array(field => data, ...)
+	function insert($table,$content) {
+		$fields = array();
+		$data = array();
+
+		foreach ($content as $key => $entry) {
+			array_push($fields,$key);
+			array_push($data,"'{$entry}'");
+		}
+
+		$query = "INSERT INTO {$table} (".implode(",",$fields).") values(".implode(",",$data).")";
+
+		$this->db->exec($query);
+	}
+
+
+//===========================================================
+// truncate table (clear all data in it)
+	function truncate($table) {
+		if ($this->table_exists($table)) {
+			$this->db->exec("DELETE FROM {$table}");
+		}
+	}
+
+
 //===========================================================
 // checks if a table exists
-function table_exists($table) {
-	$list = $this->db->query("SELECT * FROM sqlite_master WHERE type='table' and name='{$table}'");
-	$temp = $list->fetchArray();
+	function table_exists($table) {
+		$list = $this->db->query("SELECT * FROM sqlite_master WHERE type='table' and name='{$table}'");
+		$temp = $list->fetchArray();
 	
-	if (is_array($temp)) return true;
-	return false;
-}
-}
-
-
-//===========================================================
-// open a database
-// if not existing, create using the $create string
-// returns database object
-
-function sqlite_open($path,$create = "") {
-	if (!file_exists($path)) {
-// create new database
-echo "create database<br>";
+		if (is_array($temp)) return true;
+		return false;
 	}
-	else {
-// open database
-		return new SQLITE3($path);
-	}
-}
-
-
-//===========================================================
-// create table in database
-// do nothing, if table already exists
-function sqlite_create_table($db,$table) {
-	if (!sqlite_table_exists($db,$table,$param))
-	{
-		$stm = "CREATE TABLE {$table}({$param})";
-	
-		$ok = $db->exec($stm);
-		echo "table $table created<br>";
-	}
-	else echo "table already exists<br>";
-
 }
 
 

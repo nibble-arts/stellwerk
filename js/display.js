@@ -12,7 +12,7 @@ var active;
 var deskCount = 0; // number of desks
 var loadedDeskCount = 0; // number of correct loaded desks
 
-var syncTime = 5000; // sync desk every 5 seconds
+var syncTime = 5000; // sync desk every x milliseconds
 var blinkTime = 1000; // blink every second
 
 
@@ -43,7 +43,7 @@ function init(initName, initUrl) {
 	setInterval(blink,blinkTime);
 
 // start sync interval
-	setInterval(sync,syncTime);
+//	setInterval(sync,syncTime);
 
 // start watchdog
 //	setInterval(watchdog,syncTime*3.14);
